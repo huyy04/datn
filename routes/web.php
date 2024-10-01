@@ -22,3 +22,6 @@ Route::get('/san-pham', function () {
 Route::get('/login', function () {
     return view('user.login');
 });
+Route::get('/admin', function () {
+    return view('admin.home');
+});
