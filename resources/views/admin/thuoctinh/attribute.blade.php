@@ -6,7 +6,7 @@
             <!-- main-content-wrap -->
             <div class="main-content-wrap">
                 <div class="flex items-center flex-wrap justify-between gap20 mb-27">
-                    <h3>Role List</h3>
+                    <h3>All Attributes</h3>
                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                         <li>
                             <a href="index.html"><div class="text-tiny">Dashboard</div></a>
@@ -15,20 +15,31 @@
                             <i class="icon-chevron-right"></i>
                         </li>
                         <li>
-                            <a href="#"><div class="text-tiny">Roles</div></a>
+                            <a href="#"><div class="text-tiny">Attributes</div></a>
                         </li>
                         <li>
                             <i class="icon-chevron-right"></i>
                         </li>
                         <li>
-                            <div class="text-tiny">Role List</div>
+                            <div class="text-tiny">All attributes</div>
                         </li>
                     </ul>
                 </div>
-                <!-- all-roles -->
+                <!-- all-attribute -->
                 <div class="wg-box">
                     <div class="flex items-center justify-between gap10 flex-wrap">
                         <div class="wg-filter flex-grow">
+                            <div class="show">
+                                <div class="text-tiny">Showing</div>
+                                <div class="select">
+                                    <select class="">
+                                        <option>10</option>
+                                        <option>20</option>
+                                        <option>30</option>
+                                    </select>
+                                </div>
+                                <div class="text-tiny">entries</div>
+                            </div>
                             <form class="form-search">
                                 <fieldset class="name">
                                     <input type="text" placeholder="Search here..." class="" name="name" tabindex="2" value="" aria-required="true" required="">
@@ -38,29 +49,30 @@
                                 </div>
                             </form>
                         </div>
-                        <a class="tf-button style-1 w208" href="create-roles.html"><i class="icon-plus"></i>Add role</a>
+                        <a class="tf-button style-1 w208" href="add-attributes.html"><i class="icon-plus"></i>Add new</a>
                     </div>
-                    <div class="wg-table table-all-roles">
+                    <div class="wg-table table-all-attribute">
                         <ul class="table-title flex gap20 mb-14">
                             <li>
-                                <div class="body-title">No</div>
+                                <div class="body-title">Category</div>
                             </li>
                             <li>
-                                <div class="body-title">Name</div>
-                            </li>
-                            <li>
-                                <div class="body-title">Create at</div>
+                                <div class="body-title">Value</div>
                             </li>
                             <li>
                                 <div class="body-title">Action</div>
                             </li>
                         </ul>
                         <ul class="flex flex-column">
-                            <li class="roles-item">
-                                <div class="body-text">01</div>
-                                <div class="body-text">Guy Hawkins</div>
-                                <div class="body-text">May 31, 2023</div>
+                            <li class="attribute-item flex items-center justify-between gap20">
+                                <div class="name">
+                                    <a href="add-attributes.html" class="body-title-2">Color</a>
+                                </div>
+                                <div class="body-text">Blue, green, white</div>
                                 <div class="list-icon-function">
+                                    <div class="item eye">
+                                        <i class="icon-eye"></i>
+                                    </div>
                                     <div class="item edit">
                                         <i class="icon-edit-3"></i>
                                     </div>
@@ -69,11 +81,15 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="roles-item">
-                                <div class="body-text">02</div>
-                                <div class="body-text">Bessie Cooper</div>
-                                <div class="body-text">December 2, 2023</div>
+                            <li class="attribute-item flex items-center justify-between gap20">
+                                <div class="name">
+                                    <a href="add-attributes.html" class="body-title-2">Size</a>
+                                </div>
+                                <div class="body-text">S, M, L, XL</div>
                                 <div class="list-icon-function">
+                                    <div class="item eye">
+                                        <i class="icon-eye"></i>
+                                    </div>
                                     <div class="item edit">
                                         <i class="icon-edit-3"></i>
                                     </div>
@@ -82,11 +98,15 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="roles-item">
-                                <div class="body-text">03</div>
-                                <div class="body-text">Wade Warren</div>
-                                <div class="body-text">February 28, 2023</div>
+                            <li class="attribute-item flex items-center justify-between gap20">
+                                <div class="name">
+                                    <a href="add-attributes.html" class="body-title-2">Material</a>
+                                </div>
+                                <div class="body-text">Cotton, Polyster</div>
                                 <div class="list-icon-function">
+                                    <div class="item eye">
+                                        <i class="icon-eye"></i>
+                                    </div>
                                     <div class="item edit">
                                         <i class="icon-edit-3"></i>
                                     </div>
@@ -95,11 +115,15 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="roles-item">
-                                <div class="body-text">04</div>
-                                <div class="body-text">Ralph Edwards</div>
-                                <div class="body-text">December 19, 2023</div>
+                            <li class="attribute-item flex items-center justify-between gap20">
+                                <div class="name">
+                                    <a href="add-attributes.html" class="body-title-2">Style</a>
+                                </div>
+                                <div class="body-text">Classic, mordern, ethnic, western</div>
                                 <div class="list-icon-function">
+                                    <div class="item eye">
+                                        <i class="icon-eye"></i>
+                                    </div>
                                     <div class="item edit">
                                         <i class="icon-edit-3"></i>
                                     </div>
@@ -108,11 +132,15 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="roles-item">
-                                <div class="body-text">05</div>
-                                <div class="body-text">Devon Lane</div>
-                                <div class="body-text">December 29, 2023</div>
+                            <li class="attribute-item flex items-center justify-between gap20">
+                                <div class="name">
+                                    <a href="add-attributes.html" class="body-title-2">Meat Type</a>
+                                </div>
+                                <div class="body-text">Fresh, Frozen, Marinated</div>
                                 <div class="list-icon-function">
+                                    <div class="item eye">
+                                        <i class="icon-eye"></i>
+                                    </div>
                                     <div class="item edit">
                                         <i class="icon-edit-3"></i>
                                     </div>
@@ -121,11 +149,15 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="roles-item">
-                                <div class="body-text">06</div>
-                                <div class="body-text">Courtney Henry</div>
-                                <div class="body-text">August 24, 2023</div>
+                            <li class="attribute-item flex items-center justify-between gap20">
+                                <div class="name">
+                                    <a href="add-attributes.html" class="body-title-2">Weight</a>
+                                </div>
+                                <div class="body-text">1kg, 2kg, 3kg, over 5kg</div>
                                 <div class="list-icon-function">
+                                    <div class="item eye">
+                                        <i class="icon-eye"></i>
+                                    </div>
                                     <div class="item edit">
                                         <i class="icon-edit-3"></i>
                                     </div>
@@ -134,11 +166,15 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="roles-item">
-                                <div class="body-text">07</div>
-                                <div class="body-text">Savannah Nguyen</div>
-                                <div class="body-text">September 24, 2023</div>
+                            <li class="attribute-item flex items-center justify-between gap20">
+                                <div class="name">
+                                    <a href="add-attributes.html" class="body-title-2">Packaging</a>
+                                </div>
+                                <div class="body-text">Plastic box, paper, nylon, tin cans</div>
                                 <div class="list-icon-function">
+                                    <div class="item eye">
+                                        <i class="icon-eye"></i>
+                                    </div>
                                     <div class="item edit">
                                         <i class="icon-edit-3"></i>
                                     </div>
@@ -147,11 +183,15 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="roles-item">
-                                <div class="body-text">08</div>
-                                <div class="body-text">Jane Cooper</div>
-                                <div class="body-text">November 28, 2023</div>
+                            <li class="attribute-item flex items-center justify-between gap20">
+                                <div class="name">
+                                    <a href="add-attributes.html" class="body-title-2">Kind of food</a>
+                                </div>
+                                <div class="body-text">Dried food, wet food, supplementary food</div>
                                 <div class="list-icon-function">
+                                    <div class="item eye">
+                                        <i class="icon-eye"></i>
+                                    </div>
                                     <div class="item edit">
                                         <i class="icon-edit-3"></i>
                                     </div>
@@ -160,11 +200,15 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="roles-item">
-                                <div class="body-text">09</div>
-                                <div class="body-text">Esther Howard</div>
-                                <div class="body-text">February 9, 2023</div>
+                            <li class="attribute-item flex items-center justify-between gap20">
+                                <div class="name">
+                                    <a href="add-attributes.html" class="body-title-2">Milk</a>
+                                </div>
+                                <div class="body-text">Formula milk, fresh milk</div>
                                 <div class="list-icon-function">
+                                    <div class="item eye">
+                                        <i class="icon-eye"></i>
+                                    </div>
                                     <div class="item edit">
                                         <i class="icon-edit-3"></i>
                                     </div>
@@ -173,11 +217,15 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="roles-item">
-                                <div class="body-text">10</div>
-                                <div class="body-text">Cameron Williamson</div>
-                                <div class="body-text">August 7, 2023</div>
+                            <li class="attribute-item flex items-center justify-between gap20">
+                                <div class="name">
+                                    <a href="add-attributes.html" class="body-title-2">Combo</a>
+                                </div>
+                                <div class="body-text">Cat food, dog food</div>
                                 <div class="list-icon-function">
+                                    <div class="item eye">
+                                        <i class="icon-eye"></i>
+                                    </div>
                                     <div class="item edit">
                                         <i class="icon-edit-3"></i>
                                     </div>
@@ -190,7 +238,7 @@
                     </div>
                     <div class="divider"></div>
                     <div class="flex items-center justify-between flex-wrap gap10">
-                        <div class="text-tiny">Showing 10 to 16 in 16 records</div>
+                        <div class="text-tiny">Showing 10 entries</div>
                         <ul class="wg-pagination">
                             <li>
                                 <a href="#"><i class="icon-chevron-left"></i></a>
@@ -210,7 +258,7 @@
                         </ul>
                     </div>
                 </div>
-                <!-- /all-roles -->
+                <!-- /all-attribute -->
             </div>
             <!-- /main-content-wrap -->
         </div>

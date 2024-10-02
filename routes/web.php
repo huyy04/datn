@@ -25,3 +25,6 @@ Route::get('/login', function () {
 Route::get('/admin', function () {
     return view('admin.home');
 });
+Route::get('/admin/category-list', function () {
+    return view('admin.danhmuc.list');
+});
