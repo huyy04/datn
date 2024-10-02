@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,12 @@ Route::get('/admin', function () {
 });
 Route::get('/admin/category-list', function () {
     return view('admin.danhmuc.list');
+});
+Route::controller(BrandController::class)->group(function () {
+    Route::get('/brand-list', 'index')->name('brand.list');
+    Route::get('/create-brand', 'create')->name('brand.create');
+    Route::post('/create-brand', 'store')->name('brand.store');
+    Route::get('/edit-brand/{id}', 'edit')->name('brand.edit');
+    Route::post('/edit-brand/{id}', 'update')->name('brand.update');
+    Route::delete('/delete-brand/{id}', 'destroy')->name('brand.destroy');
 });

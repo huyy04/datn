@@ -925,7 +925,7 @@
                             </div>
                             <!--== Sidebar Product Type End ==-->
 
-                            <!--== Sidebar Brand Start ==-->
+                            <!--== Sidebar BrandController Start ==-->
                             <div class="accordion-item shop-sidebar-item">
                                 <button class="shop-sidebar-toggle accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sidebarBrand">Brand</button>
                                 <div id="sidebarBrand" class="accordion-collapse collapse">
@@ -969,7 +969,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--== Sidebar Brand End ==-->
+                            <!--== Sidebar BrandController End ==-->
 
                             <!--== Sidebar Color Start ==-->
                             <div class="accordion-item shop-sidebar-item">

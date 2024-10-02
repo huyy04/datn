@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use  Faker\Factory as Faker;
 
 class CategorySeeder extends Seeder
 {
@@ -13,10 +14,10 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = \Faker\Factory::create();
+        $faker = Faker::create();
         for ($i = 0; $i < 5; $i++) {
             Category::create([
-                'name' => $faker->text(20),
+                'name' => $faker->name,
             ]);
         }
     }
