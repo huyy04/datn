@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,13 @@ Route::controller(BrandController::class)->group(function () {
     Route::get('/edit-brand/{id}', 'edit')->name('brand.edit');
     Route::post('/edit-brand/{id}', 'update')->name('brand.update');
     Route::delete('/delete-brand/{id}', 'destroy')->name('brand.destroy');
+});
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/danhmuc/list', 'index')->name('danhmuc.list');
+    Route::get('/danhmuc/create', 'create')->name('danhmuc.create');
+    Route::post('/danhmuc/store', 'store')->name('danhmuc.store');
+    Route::get('/danhmuc/{id}/edit', 'edit')->name('danhmuc.edit');
+    Route::post('/danhmuc/{id}/update', 'update')->name('danhmuc.update'); 
+    Route::delete('/danhmuc/{id}/destroy', 'destroy')->name('danhmuc.destroy');
 });

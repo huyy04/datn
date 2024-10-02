@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+use function Laravel\Prompts\table;
 
 class CategoryController extends Controller
 {
@@ -11,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $data = DB::table('categories')->get();
+        return view('admin.danhmuc.list', compact('data'));
     }
 
     /**
@@ -19,7 +25,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.danhmuc.create');
+
     }
 
     /**
@@ -27,7 +34,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('categories')->insert([
+            'name'=>$request ->name,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        return redirect()->route('danhmuc.list');
     }
 
     /**
@@ -43,7 +54,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $model = DB::table('categories')->where('id',$id)->first();
+        return view('admin.danhmuc.edit',compact('model'));
     }
 
     /**
@@ -51,7 +63,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $cateId = Category::query()->findOrFail($id);
+        $validatedData = $request->validate([
+            'name' => 'required|unique:brands|max:255|',
+        ]);
+        $cateId->update([
+            'name' => $validatedData['name'],
+        ]);
+        return redirect()->route('danhmuc.list');
     }
 
     /**
@@ -59,6 +78,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete(); // Thực hiện soft delete
+        return back();
     }
 }

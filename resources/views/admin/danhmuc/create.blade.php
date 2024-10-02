@@ -27,12 +27,13 @@
                 </div>
                 <!-- new-category -->
                 <div class="wg-box">
-                    <form class="form-new-product form-style-1" >
+                    <form action="{{route('danhmuc.store')}}" method="POST" enctype="multipart/form-data" class="form-new-product form-style-1" >
+                    @csrf
                         <fieldset class="name">
                             <div class="body-title">Product name <span class="tf-color-1">*</span></div>
-                            <input class="flex-grow" type="text" placeholder="Category name" name="text" tabindex="0" value="" aria-required="true" required="">
+                            <input class="flex-grow" type="text" placeholder="Category name" name="name" tabindex="0" value="" aria-required="true" required="">
                         </fieldset>
-                        <fieldset>
+                        <!-- <fieldset>
                             <div class="body-title">Upload images <span class="tf-color-1">*</span></div>
                             <div class="upload-image flex-grow">
                                 <div class="item up-load">
@@ -45,15 +46,15 @@
                                     </label>
                                 </div>
                             </div>
-                        </fieldset>
+                        </fieldset> -->
                         <fieldset class="category">
                             <div class="body-title">Select category icon</div>
                             <div class="select flex-grow">
-                                <select class="">
+                                <!-- <select class="">
                                     <option>Select icon</option>
                                     <option>icon 1</option>
                                     <option>icon 2</option>
-                                </select>
+                                </select> -->
                             </div>
                         </fieldset>
                         <div class="bot">
