@@ -31,6 +31,7 @@ Route::get('/admin/category-list', function () {
 });
 Route::controller(BrandController::class)->group(function () {
     Route::get('/brand-list', 'index')->name('brand.list');
+    Route::get('/brand-search', 'search')->name('brand.search');
     Route::get('/create-brand', 'create')->name('brand.create');
     Route::post('/create-brand', 'store')->name('brand.store');
     Route::get('/edit-brand/{id}', 'edit')->name('brand.edit');
