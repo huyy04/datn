@@ -44,9 +44,9 @@
                                 </div>
                                 <div class="text-tiny">entries</div>
                             </div>
-                            <form class="form-search">
+                            <form class="form-search" action="{{ route('brand.search') }}" method="get">
                                 <fieldset class="name">
-                                    <input type="text" placeholder="Search here..." class="" name="name" tabindex="2" value="" aria-required="true" required="">
+                                    <input type="text" placeholder="Search here..." class="" name="search" tabindex="2" value="" aria-required="true">
                                 </fieldset>
                                 <div class="button-submit">
                                     <button class="" type="submit"><i class="icon-search"></i></button>
@@ -55,6 +55,7 @@
                         </div>
                         <a class="tf-button style-1 w208" href="{{ route('brand.create') }}"><i class="icon-plus"></i>Add new</a>
                     </div>
+
                     <div class="wg-table table-product-list">
                         <ul class="table-title flex gap20 mb-14">
                             <li>

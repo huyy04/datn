@@ -16,6 +16,16 @@ class BrandController extends Controller
         return view('admin.brand.list', compact('brands'));
     }
 
+    public function search(Request $request)
+    {
+        // lay tu khoa tim kiem
+        $query = $request->input('search');
+        // tim kie trong bang
+        $search = Brand::query()->where('name', 'LIKE', "%{$query}%")->get();
+        // tra ve ket qua tim kiem
+        return view('admin.brand.search', compact('search', 'query'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
