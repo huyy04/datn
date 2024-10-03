@@ -109,10 +109,10 @@
                                                 <a href="{{ route('brand.edit',$value->id) }}"><i class="icon-edit-3"></i></a>
                                             </div>
                                             <div class="item trash">
-                                                <form action="{{ route('brand.destroy',$value->id) }}">
+                                                <form action="{{ route('brand.destroy',$value->id) }}" method="post">
                                                     @method('delete')
                                                     @csrf
-                                                    <i onclick="confirm('ban co muon xoa khong')" class="icon-trash-2"></i>
+                                                    <i class="icon-trash-2"></i>
                                                 </form>
                                             </div>
                                         </div>

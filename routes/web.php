@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
@@ -30,21 +31,38 @@ Route::get('/admin', function () {
 Route::get('/admin/category-list', function () {
     return view('admin.danhmuc.list');
 });
-Route::controller(BrandController::class)->group(function () {
-    Route::get('/brand-list', 'index')->name('brand.list');
-    Route::get('/brand-search', 'search')->name('brand.search');
-    Route::get('/create-brand', 'create')->name('brand.create');
-    Route::post('/create-brand', 'store')->name('brand.store');
-    Route::get('/edit-brand/{id}', 'edit')->name('brand.edit');
-    Route::post('/edit-brand/{id}', 'update')->name('brand.update');
-    Route::delete('/delete-brand/{id}', 'destroy')->name('brand.destroy');
+Route::controller(BrandController::class)
+    ->prefix('brand')
+    ->group(function () {
+    Route::get('list', 'index')->name('brand.list');
+    Route::get('search', 'search')->name('brand.search');
+    Route::get('create', 'create')->name('brand.create');
+    Route::post('store', 'store')->name('brand.store');
+    Route::get('edit/{id}', 'edit')->name('brand.edit');
+    Route::post('update/{id}', 'update')->name('brand.update');
+    Route::delete('delete/{id}', 'destroy')->name('brand.destroy');
 });
 
-Route::controller(CategoryController::class)->group(function () {
-    Route::get('/danhmuc/list', 'index')->name('danhmuc.list');
-    Route::get('/danhmuc/create', 'create')->name('danhmuc.create');
-    Route::post('/danhmuc/store', 'store')->name('danhmuc.store');
-    Route::get('/danhmuc/{id}/edit', 'edit')->name('danhmuc.edit');
-    Route::post('/danhmuc/{id}/update', 'update')->name('danhmuc.update'); 
-    Route::delete('/danhmuc/{id}/destroy', 'destroy')->name('danhmuc.destroy');
+Route::controller(CategoryController::class)
+    ->prefix('danhmuc')
+    ->group(function () {
+    Route::get('list', 'index')->name('danhmuc.list');
+    Route::get('search', 'search')->name('danhmuc.search');
+    Route::get('create', 'create')->name('danhmuc.create');
+    Route::post('store', 'store')->name('danhmuc.store');
+    Route::get('{id}/edit', 'edit')->name('danhmuc.edit');
+    Route::post('{id}/update', 'update')->name('danhmuc.update');
+    Route::delete('{id}/destroy', 'destroy')->name('danhmuc.destroy');
+});
+
+Route::controller(ProductController::class)
+    ->prefix('product')
+    ->group(function () {
+        Route::get('list', 'index')->name('product.index');
+        Route::get('search', 'search')->name('product.search');
+        Route::get('create', 'create')->name('product.create');
+        Route::post('store', 'store')->name('product.store');
+        Route::get('edit/{id}', 'edit')->name('product.edit');
+        Route::post('edit/{id}', 'update')->name('product.update');
+        Route::delete('delete/{id}', 'destroy')->name('product.destroy');
 });

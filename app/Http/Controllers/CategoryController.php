@@ -20,13 +20,19 @@ class CategoryController extends Controller
         return view('admin.danhmuc.list', compact('data'));
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('search');
+        $search = Category::query()->where('name', 'like', "%{$query}%")->get();
+        return view('admin.danhmuc.search', compact('search', 'query'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         return view('admin.danhmuc.create');
-
     }
 
     /**
