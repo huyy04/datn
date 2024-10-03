@@ -1,6 +1,6 @@
 @extends('layout.admin.layout')
 @section('content')
-     <p style="font-size: 30px">Kết quả tìm kiếm cho: "{{ $query }}"</p>
+    <p style="font-size: 30px">Kết quả tìm kiếm cho: "{{ $query }}"</p>
     @if($search->isEmpty())
         <h1>Không tìm thấy kết quả nào !</h1>
     @else
@@ -10,7 +10,7 @@
                 <!-- main-content-wrap -->
                 <div class="main-content-wrap">
                     <div class="flex items-center flex-wrap justify-between gap20 mb-27">
-                        <h3>Brand List</h3>
+                        <h3>Category List</h3>
                         <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                             <li>
                                 <a href=""><div class="text-tiny">Dashboard</div></a>
@@ -63,10 +63,10 @@
                         <div class="wg-table table-product-list">
                             <ul class="table-title flex gap20 mb-14">
                                 <li>
-                                    <div class="body-title">Brand</div>
+                                    <div class="body-title">Category</div>
                                 </li>
                                 <li>
-                                    <div class="body-title">Brand ID</div>
+                                    <div class="body-title">Category ID</div>
                                 </li>
                                 {{--                            <li>--}}
                                 {{--                                <div class="body-title">Price</div>--}}
@@ -110,10 +110,10 @@
                                                     <i class="icon-eye"></i>
                                                 </div>
                                                 <div class="item edit">
-                                                    <a href="{{ route('brand.edit',$value->id) }}"><i class="icon-edit-3"></i></a>
+                                                    <a href="{{ route('danhmuc.edit',$value->id) }}"><i class="icon-edit-3"></i></a>
                                                 </div>
                                                 <div class="item trash">
-                                                    <form action="{{ route('brand.destroy',$value->id) }}">
+                                                    <form action="{{ route('danhmuc.destroy',$value->id) }}">
                                                         @method('delete')
                                                         @csrf
                                                         <i onclick="confirm('ban co muon xoa khong')" class="icon-trash-2"></i>

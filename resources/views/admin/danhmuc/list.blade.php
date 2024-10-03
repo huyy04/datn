@@ -40,9 +40,9 @@
                                                 </div>
                                                 <div class="text-tiny">entries</div>
                                             </div>
-                                            <form class="form-search">
+                                            <form class="form-search" method="get" action="{{ route('danhmuc.search') }}">
                                                 <fieldset class="name">
-                                                    <input type="text" placeholder="Search here..." class="" name="name" tabindex="2" value="" aria-required="true" required="">
+                                                    <input type="text" placeholder="Search here..." class="" name="search" tabindex="2" value="" aria-required="true" >
                                                 </fieldset>
                                                 <div class="button-submit">
                                                     <button class="" type="submit"><i class="icon-search"></i></button>
@@ -55,7 +55,7 @@
                                         <ul class="table-title flex gap20 mb-3">
                                             <li>
                                                 <div class="body-title">Category</div>
-                                            </li>    
+                                            </li>
                                             <li>
                                                 <div class="body-title">Category ID</div>
                                             </li>
@@ -91,7 +91,7 @@
                                                     @csrf
                                                     <button type="submit" onclick="return confirm('Bạn có muốn xóa không?')">
                                                         <i class="icon-trash-2"></i>
-                                                    </button>                                                
+                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
@@ -99,7 +99,7 @@
                                 </li>
                             </ul>
                         @endforeach
-                                       
+
                                         </ul>
                                     </div>
                                 </div>
