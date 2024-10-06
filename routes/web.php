@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +16,35 @@ use App\Http\Controllers\CategoryController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// User
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::get('/', function () {
-    return view('client.home');
-});
+    return view('client.home'); })->name('client.home');
 Route::get('/san-pham', function () {
     return view('client.sanpham');
 });
 Route::get('/login', function () {
     return view('user.login');
 });
-Route::get('/admin', function () {
-    return view('admin.home');
-});
+
+
+// Phân quyền admin
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.home');})->name('admin.home');
 Route::get('/admin/category-list', function () {
     return view('admin.danhmuc.list');
 });
@@ -66,3 +83,7 @@ Route::controller(ProductController::class)
         Route::post('edit/{id}', 'update')->name('product.update');
         Route::delete('delete/{id}', 'destroy')->name('product.destroy');
 });
+});
+
+
+require __DIR__.'/auth.php';

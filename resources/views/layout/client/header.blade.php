@@ -122,9 +122,44 @@
                             </ul>
                             <h6 class="header-dropdown-menu-title">Account</h6>
                             <ul>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="register.html">Register</a></li>
-                                <li><a href="my-account.html">My Account</a></li>
+@guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
+
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                        </li>
+                        <li>
+                        @auth
+                            @if (Auth::user()->role == '1')
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('admin.home') }}">Admin Dashboard</a>
+                                    </li>
+                                @endif
+                            @endauth
+                        </li>
+                    @endguest
                             </ul>
                         </div>
                     </div>
@@ -137,3 +172,4 @@
     </div>
 </div>
 <!--== End: Header Wrapper ==-->
+
