@@ -1,30 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Category;
-use Carbon\Carbon;
+use App\Models\Brand;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-use function Laravel\Prompts\table;
-
-class CategoryController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = DB::table('categories')->get();
-        return view('admin.danhmuc.list', compact('data'));
+        $brands = Brand::all();
+        return view('admin.brand.list', compact('brands'));
     }
 
     public function search(Request $request)
     {
+        // lay tu khoa tim kiem
         $query = $request->input('search');
-        $search = Category::query()->where('name', 'like', "%{$query}%")->get();
-        return view('admin.danhmuc.search', compact('search', 'query'));
+        // tim kie trong bang
+        $search = Brand::query()->where('name', 'LIKE', "%{$query}%")->get();
+        // tra ve ket qua tim kiem
+        return view('admin.brand.search', compact('search', 'query'));
     }
 
     /**
@@ -32,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.danhmuc.create');
+        return view('admin.brand.create');
     }
 
     /**
@@ -40,11 +39,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('categories')->insert([
-            'name'=>$request ->name,
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+        $validatedData = $request->validate([
+            'name' => 'required|unique:brands|max:255|',
         ]);
-        return redirect()->route('danhmuc.list');
+        Brand::query()->create([
+            'name' => $validatedData['name'],
+        ]);
+
+        return redirect()->route('brand.list');
     }
 
     /**
@@ -60,8 +62,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $model = DB::table('categories')->where('id',$id)->first();
-        return view('admin.danhmuc.edit',compact('model'));
+        $brandId = Brand::query()->findOrFail($id);
+        return view('admin.brand.edit', compact('brandId'));
     }
 
     /**
@@ -69,14 +71,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $cateId = Category::query()->findOrFail($id);
+        $brandId = Brand::query()->findOrFail($id);
         $validatedData = $request->validate([
             'name' => 'required|unique:brands|max:255|',
         ]);
-        $cateId->update([
+        $brandId->update([
             'name' => $validatedData['name'],
         ]);
-        return redirect()->route('danhmuc.list');
+        return redirect()->route('brand.list');
     }
 
     /**
@@ -84,8 +86,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete(); // Thực hiện soft delete
-        return back();
+        $brandId = Brand::query()->findOrFail($id);
+        $brandId->delete();
+        return redirect()->route('brand.list');
     }
 }
