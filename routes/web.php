@@ -1,20 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductVariantController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\CategoryController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('client.home');
@@ -28,9 +19,8 @@ Route::get('/login', function () {
 Route::get('/admin', function () {
     return view('admin.home');
 });
-Route::get('/admin/category-list', function () {
-    return view('admin.danhmuc.list');
-});
+
+//thuong hieu
 Route::controller(BrandController::class)
     ->prefix('brand')
     ->group(function () {
@@ -42,7 +32,7 @@ Route::controller(BrandController::class)
     Route::post('update/{id}', 'update')->name('brand.update');
     Route::delete('delete/{id}', 'destroy')->name('brand.destroy');
 });
-
+// danh muc
 Route::controller(CategoryController::class)
     ->prefix('danhmuc')
     ->group(function () {
@@ -54,15 +44,24 @@ Route::controller(CategoryController::class)
     Route::post('{id}/update', 'update')->name('danhmuc.update');
     Route::delete('{id}/destroy', 'destroy')->name('danhmuc.destroy');
 });
-
+// san pham
 Route::controller(ProductController::class)
-    ->prefix('product')
+    ->prefix('sanpham')
     ->group(function () {
-        Route::get('list', 'index')->name('product.index');
-        Route::get('search', 'search')->name('product.search');
-        Route::get('create', 'create')->name('product.create');
-        Route::post('store', 'store')->name('product.store');
-        Route::get('edit/{id}', 'edit')->name('product.edit');
-        Route::post('edit/{id}', 'update')->name('product.update');
-        Route::delete('delete/{id}', 'destroy')->name('product.destroy');
+        Route::get('list', 'index')->name('index');
+        Route::get('search', 'search')->name('search');
+        Route::get('show-product/{id}', 'show')->name('show');
+        Route::get('create', 'create')->name('create');
+        Route::post('create', 'store')->name('store');
+        Route::get('edit/{id}', 'edit')->name('edit');
+        Route::post('edit/{id}', 'update')->name('update');
+        Route::delete('delete/{id}', 'destroy')->name('destroy');
+});
+// thuoc tinh
+Route::controller(ProductVariantController::class)
+->prefix('thuoc-tinh')
+->group(function () {
+    Route::get('/', 'index')->name('thuoc-tinh.list');
+    Route::get('/create', 'create')->name('thuoc-tinh.create');
+    Route::post('/store', 'store')->name('thuoc-tinh.store');
 });

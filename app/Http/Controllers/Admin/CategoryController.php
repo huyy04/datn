@@ -1,29 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Brand;
+use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class BrandController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $brands = Brand::all();
-        return view('admin.brand.list', compact('brands'));
+        $data = DB::table('categories')->get();
+        return view('admin.danhmuc.list', compact('data'));
     }
 
     public function search(Request $request)
     {
-        // lay tu khoa tim kiem
         $query = $request->input('search');
-        // tim kie trong bang
-        $search = Brand::query()->where('name', 'LIKE', "%{$query}%")->get();
-        // tra ve ket qua tim kiem
-        return view('admin.brand.search', compact('search', 'query'));
+        $search = Category::query()->where('name', 'like', "%{$query}%")->get();
+        return view('admin.danhmuc.search', compact('search', 'query'));
     }
 
     /**
@@ -31,7 +30,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('admin.brand.create');
+        return view('admin.danhmuc.create');
     }
 
     /**
@@ -39,14 +38,11 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|unique:brands|max:255|',
+        DB::table('categories')->insert([
+            'name'=>$request ->name,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
-        Brand::query()->create([
-            'name' => $validatedData['name'],
-        ]);
-
-        return redirect()->route('brand.list');
+        return redirect()->route('danhmuc.list');
     }
 
     /**
@@ -62,8 +58,8 @@ class BrandController extends Controller
      */
     public function edit(string $id)
     {
-        $brandId = Brand::query()->findOrFail($id);
-        return view('admin.brand.edit', compact('brandId'));
+        $model = DB::table('categories')->where('id',$id)->first();
+        return view('admin.danhmuc.edit',compact('model'));
     }
 
     /**
@@ -71,14 +67,14 @@ class BrandController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $brandId = Brand::query()->findOrFail($id);
+        $cateId = Category::query()->findOrFail($id);
         $validatedData = $request->validate([
             'name' => 'required|unique:brands|max:255|',
         ]);
-        $brandId->update([
+        $cateId->update([
             'name' => $validatedData['name'],
         ]);
-        return redirect()->route('brand.list');
+        return redirect()->route('danhmuc.list');
     }
 
     /**
@@ -86,8 +82,8 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        $brandId = Brand::query()->findOrFail($id);
-        $brandId->delete();
-        return redirect()->route('brand.list');
+        $category = Category::findOrFail($id);
+        $category->delete(); // Thực hiện soft delete
+        return back();
     }
 }

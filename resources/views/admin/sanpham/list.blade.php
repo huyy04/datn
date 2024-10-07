@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="text-tiny">entries</div>
                             </div>
-                            <form class="form-search" action="{{ route('product.search') }}" method="get" >
+                            <form class="form-search" action="{{ route('search') }}" method="get" >
                                 <fieldset class="name">
                                     <input type="text" placeholder="Search here..." class="" name="search" tabindex="2" value="" aria-required="true" >
                                 </fieldset>
@@ -53,7 +53,7 @@
                                 </div>
                             </form>
                         </div>
-                        <a class="tf-button style-1 w208" href="{{ route('product.create') }}"><i class="icon-plus"></i>Add new</a>
+                        <a class="tf-button style-1 w208" href="{{ route('create') }}"><i class="icon-plus"></i>Add new</a>
                     </div>
                     <div class="wg-table table-product-list">
                         <ul class="table-title flex gap20 mb-14">
@@ -89,7 +89,11 @@
                             <ul class="flex flex-column">
                                 <li class="product-item gap14">
                                     <div class="image no-bg">
-                                        <img src="{{ asset($value->image) }}" alt="">
+                                        @if($value->image)
+                                            <img src="{{ asset($value->image) }}" alt="">
+                                        @else
+                                            <span>k co anh</span>
+                                        @endif
                                     </div>
                                     <div class="flex items-center justify-between gap20 flex-grow">
                                         <div class="name">
@@ -106,7 +110,7 @@
                                         <div class="body-text">{{ $value->created_at }}</div>
                                         <div class="list-icon-function">
                                             <div class="item eye">
-                                                <i class="icon-eye"></i>
+                                                <a href="{{ route('show',$value->id) }}"><i class="icon-eye"></i></a>
                                             </div>
                                             <div class="item edit">
                                                 <i class="icon-edit-3"></i>
@@ -119,6 +123,7 @@
                                 </li>
                             </ul>
                         @endforeach
+
                     </div>
                     <div class="divider"></div>
                     <div class="flex items-center justify-between flex-wrap gap10">
@@ -128,7 +133,7 @@
                                 <a href="#"><i class="icon-chevron-left"></i></a>
                             </li>
                             <li>
-                                <a href="#">1</a>
+                                <a href=""></a>
                             </li>
                             <li class="active">
                                 <a href="#">2</a>
@@ -140,7 +145,10 @@
                                 <a href="#"><i class="icon-chevron-right"></i></a>
                             </li>
                         </ul>
+
                     </div>
+
+                    {{ $products->links() }}
                 </div>
                 <!-- /product-list -->
             </div>
