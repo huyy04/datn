@@ -1,0 +1,15 @@
+HTTrack3.49-2+htsswf+htsjava launched on Thu, 18 Jul 2024 00:22:53 at https://themesflat.co/html/remos/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://themesflat.co/html/remos/index.html -O1 "C:\My Web Sites\18_7" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+00:22:56	Error: 	"Internal Server Error" (500) after 2 retries at link https://themesflat.co/robots.txt (from primary/primary)
+00:24:40	Warning: 	Retry after error 500 (Internal Server Error) at link https://themesflat.co/html/remos/create-roles.html (from https://themesflat.co/html/remos/all-roles.html)
+00:24:41	Warning: 	Retry after error 500 (Internal Server Error) at link https://themesflat.co/html/remos/create-roles.html (from https://themesflat.co/html/remos/all-roles.html)
+00:24:42	Error: 	"Internal Server Error" (500) after 2 retries at link https://themesflat.co/html/remos/create-roles.html (from https://themesflat.co/html/remos/all-roles.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 49 seconds : 239 links scanned, 235 files written (12565628 bytes overall) [9704915 bytes received at 89035 bytes/sec], 3250858 bytes transferred using HTTP compression in 39 files, ratio 9%, 5.1 requests per connection
+(2 errors, 2 warnings, 0 messages)
