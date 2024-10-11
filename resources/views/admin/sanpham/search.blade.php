@@ -109,7 +109,7 @@
                                                     <i class="icon-eye"></i>
                                                 </div>
                                                 <div class="item edit">
-                                                    <i class="icon-edit-3"></i>
+                                                        <a href="{{ route('product.edit',$value->id) }}"><i class="icon-edit-3"></i></a>
                                                 </div>
                                                 <div class="item trash">
                                                     <i class="icon-trash-2"></i>
@@ -123,23 +123,26 @@
                         <div class="divider"></div>
                         <div class="flex items-center justify-between flex-wrap gap10">
                             <div class="text-tiny">Showing 10 entries</div>
-                            <ul class="wg-pagination">
-                                <li>
-                                    <a href="#"><i class="icon-chevron-left"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#">1</a>
-                                </li>
-                                <li class="active">
-                                    <a href="#">2</a>
-                                </li>
-                                <li>
-                                    <a href="#">3</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="icon-chevron-right"></i></a>
-                                </li>
-                            </ul>
+{{--                            <ul class="wg-pagination">--}}
+{{--                                <li>--}}
+{{--                                    <a href="#"><i class="icon-chevron-left"></i></a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="#">1</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="active">--}}
+{{--                                    <a href="#">2</a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="#">3</a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="#"><i class="icon-chevron-right"></i></a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+                            <div class="pagination">
+
+                            </div>
                         </div>
                     </div>
                     <!-- /product-list -->

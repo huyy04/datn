@@ -26,7 +26,7 @@
                     </ul>
                 </div>
                 <!-- form-add-product -->
-                <form class="tf-section-2 form-add-product" action="{{ route('store') }}" method="post" enctype="multipart/form-data" >
+                <form class="tf-section-2 form-add-product" action="{{ route('product.store') }}" method="post" enctype="multipart/form-data" >
                     @csrf
                     <div class="wg-box">
                         <fieldset class="name">

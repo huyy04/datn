@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -19,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::query()->with('category')->paginate(5);
+        $products = Product::query()->with('category')->paginate(4);
         return view('admin.sanpham.list', compact('products'));
     }
 
@@ -84,7 +83,7 @@ class ProductController extends Controller
             'brand_id' => $validate['brand_id'],
             'category_id' => $validate['category_id'],
         ]);
-        return redirect()->route('index');
+        return redirect()->route('product.index');
     }
 
     /**
@@ -101,7 +100,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $productId = Product::query()->find($id);
+        $brand = Brand::all();
+        $category = Category::all();
+        return view('admin.sanpham.edit', compact('productId', 'brand', 'category'));
     }
 
     /**
@@ -109,7 +111,24 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $productId = Product::query()->find($id);
+        $validate = $request->validate([
+            'name' => 'required|max:255',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => 'required',
+            'ton_kho' => 'required',
+            'description' => 'required',
+            'brand_id' => 'required',
+            'category_id' => 'required',
+        ]);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            if ($file->isValid()) {
+                $fileName = time() .'_'. $file->getClientOriginalName();
+                $path = $file->storeAs('products', $fileName, 'public');
+            }
+        }
+        $validate = $request->validate([]);
     }
 
     /**
@@ -117,6 +136,8 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $productId = Product::query()->find($id);
+        $productId->delete();
+        return redirect()->route('product.list');
     }
 }

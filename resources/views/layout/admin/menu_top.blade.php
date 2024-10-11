@@ -373,8 +373,8 @@
                             <img src="images/avatar/user-1.png" alt="">
                         </span>
                         <span class="flex flex-column">
-                            <span class="body-title mb-2"> {{ Auth::user()->name }}</span>
-                            <span class="text-tiny"> {{ Auth::user()->role }}</span>
+{{--                            <span class="body-title mb-2"> {{ Auth::user()->name }}</span>--}}
+{{--                            <span class="text-tiny"> {{ Auth::user()->role }}</span>--}}
                         </span>
                     </span>
                     </button>
@@ -420,19 +420,19 @@
                                 <div class="body-title-2">Support</div>
                             </a>
                         </li>
-                        <li>
-                            <a href="login.html" class="user-item">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                              document.getElementById('logout-form').submit();">
-                                    <div class="body-title-2">{{ __('Logout') }}</div>
-                                </a>
+{{--                        <li>--}}
+{{--                            <a href="login.html" class="user-item">--}}
+{{--                                <a class="dropdown-item" href="{{ route('logout') }}"--}}
+{{--                                    onclick="event.preventDefault();--}}
+{{--                                              document.getElementById('logout-form').submit();">--}}
+{{--                                    <div class="body-title-2">{{ __('Logout') }}</div>--}}
+{{--                                </a>--}}
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </a>
-                        </li>
+{{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
+{{--                                    @csrf--}}
+{{--                                </form>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     </ul>
                 </div>
             </div>

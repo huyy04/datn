@@ -153,14 +153,14 @@
                         <li>
                         @auth
                             @if (Auth::user()->role == '1')
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('admin.home') }}">Admin Dashboard</a>
-                                    </li>
-                                @endif
-                            @endauth
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.home') }}">Admin Dashboard</a>
+                                </li>
+                            @endif
+                        @endauth
                         </li>
                     @endguest
-                            </ul>
+                </ul>
                         </div>
                     </div>
                     <div class="header-action-item d-flex d-lg-none">

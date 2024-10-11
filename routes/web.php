@@ -1,10 +1,10 @@
 <?php
-
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductVariantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +42,11 @@ Route::get('/login', function () {
 
 
 // Phân quyền admin
-Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/admin', function () {
-        return view('admin.home');})->name('admin.home');
+//Route::middleware(['auth', 'isAdmin'])->group(function () {
+//    Route::get('/admin', function () {
+//        return view('admin.home');
+//    })->name('admin.home');
+//});
 Route::get('/admin/category-list', function () {
     return view('admin.danhmuc.list');
 });
@@ -73,7 +75,7 @@ Route::controller(CategoryController::class)
 });
 
 Route::controller(ProductController::class)
-    ->prefix('product')
+    ->prefix('san-pham')
     ->group(function () {
         Route::get('list', 'index')->name('product.index');
         Route::get('search', 'search')->name('product.search');
@@ -83,7 +85,13 @@ Route::controller(ProductController::class)
         Route::post('edit/{id}', 'update')->name('product.update');
         Route::delete('delete/{id}', 'destroy')->name('product.destroy');
 });
+
+Route::controller(ProductVariantController::class)->prefix('thuoc-tinh')->group(function () {
+    Route::get('list', 'index')->name('thuoc-tinh.list');
+    Route::get('create', 'create')->name('thuoc-tinh.create');
+    Route::post('store', 'store')->name('thuoc-tinh.store');
 });
+
 
 
 require __DIR__.'/auth.php';
