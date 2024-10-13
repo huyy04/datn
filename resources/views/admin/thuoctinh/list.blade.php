@@ -99,7 +99,7 @@
                                         <a href="" class="body-title-2">{{ $value->product->name }}</a>
                                     </div>
                                     <div class="body-text">{{ $value->id }}</div>
-                                    <div class="body-text">{{ $value->color->name }} </div>
+                                    <div class="body-text" style="background-color: {{ $value->color->name }};width: 100px;height: 20px;border-radius: 50%;margin-right: 300px>{{ $value->color->name }} </div>
                                     <div class="body-text">{{ $value->size->name }}</div>
                                     <div class="name">
                                         <p class="body-title-2">{{ $value->ram_size->name }}</p>
