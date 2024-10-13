@@ -86,12 +86,14 @@ Route::controller(ProductController::class)
         Route::delete('delete/{id}', 'destroy')->name('product.destroy');
 });
 
-Route::controller(ProductVariantController::class)->prefix('thuoc-tinh')->group(function () {
-    Route::get('list', 'index')->name('thuoc-tinh.list');
-    Route::get('create', 'create')->name('thuoc-tinh.create');
-    Route::post('store', 'store')->name('thuoc-tinh.store');
+Route::controller(ProductVariantController::class)
+    ->prefix('thuoc-tinh')
+    ->group(function () {
+        Route::get('list', 'index')->name('thuoc-tinh.list');
+        Route::get('create', 'create')->name('thuoc-tinh.create');
+        Route::post('/store', 'store')->name('thuoc-tinh.store');
 });
 
 
 
-require __DIR__.'/auth.php';
+//require __DIR__.'/auth.php';

@@ -57,19 +57,19 @@
                 <div class="wg-table table-product-list">
                     <ul class="table-title flex gap20 mb-14">
                         <li>
-                            <div class="body-title">Product</div>
+                            <div class="body-title">Sản phẩm</div>
                         </li>
                         <li>
-                            <div class="body-title">Product Variant ID</div>
+                            <div class="body-title">id</div>
                         </li>
                         <li>
-                            <div class="body-title">Color</div>
+                            <div class="body-title">Màu sắc</div>
                         </li>
                         <li>
-                            <div class="body-title">Size</div>
+                            <div class="body-title">Kích thước</div>
                         </li>
                         <li>
-                            <div class="body-title">Ram</div>
+                            <div class="body-title">Bộ Nhớ</div>
                         </li>
 {{--                        <li>--}}
 {{--                            <div class="body-title">Brand</div>--}}
@@ -99,7 +99,7 @@
                                         <a href="" class="body-title-2">{{ $value->product->name }}</a>
                                     </div>
                                     <div class="body-text">{{ $value->id }}</div>
-                                    <div class="body-text">{{ $value->color->name }} </div>
+                                    <div class="body-text" style="background-color: {{ $value->color->name }};width: 100px;height: 20px;border-radius: 50%;margin-right: 300px"></div>
                                     <div class="body-text">{{ $value->size->name }}</div>
                                     <div class="name">
                                         <p class="body-title-2">{{ $value->ram_size->name }}</p>
@@ -124,23 +124,26 @@
                 <div class="divider"></div>
                 <div class="flex items-center justify-between flex-wrap gap10">
                     <div class="text-tiny">Showing 10 entries</div>
-                    <ul class="wg-pagination">
-                        <li>
-                            <a href="#"><i class="icon-chevron-left"></i></a>
-                        </li>
-                        <li>
-                            <a href=""></a>
-                        </li>
-                        <li class="active">
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon-chevron-right"></i></a>
-                        </li>
-                    </ul>
+{{--                    <ul class="wg-pagination">--}}
+{{--                        <li>--}}
+{{--                            <a href="#"><i class="icon-chevron-left"></i></a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href=""></a>--}}
+{{--                        </li>--}}
+{{--                        <li class="active">--}}
+{{--                            <a href="#">2</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="#">3</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="#"><i class="icon-chevron-right"></i></a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+                    <div class="pagination">
+                        {{ $productVariants->links() }}
+                    </div>
 
                 </div>
 
@@ -148,6 +151,13 @@
             <!-- /product-list -->
         </div>
         <!-- /main-content-wrap -->
+            <!-- bottom-page -->
+            <div class="bottom-page">
+                <div class="body-text">Copyright © 2024 Remos. Design with</div>
+                <i class="icon-heart"></i>
+                <div class="body-text">by <a href="https://themeforest.net/user/themesflat/portfolio">Themesflat</a> All rights reserved.</div>
+            </div>
+            <!-- /bottom-page -->
     </div>
     </div>
 @endsection
