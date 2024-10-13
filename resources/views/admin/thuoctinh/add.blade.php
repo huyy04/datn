@@ -27,55 +27,54 @@
                 </div>
                 <!-- form-add-product -->
                 <form class="tf-section-2 form-add-product" action="{{ route('thuoc-tinh.store') }}" method="post">
-                    @method('post')
                     @csrf
-                        <div class="wg-box">
-                            <div class="gap22 cols">
-                                <fieldset class="category">
-                                    <div class="body-title mb-10">San pham <span class="tf-color-1">*</span></div>
-                                    <div class="select">
-                                        <select class="" name="product_id">
-                                            @foreach($product as $pro)
-                                                <option value="{{ $pro->id }}">{{ $pro->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </fieldset>
-                                <fieldset class="male">
-                                    <div class="body-title mb-10">Mau sac <span class="tf-color-1">*</span></div>
-                                    <div class="select">
-                                        <select class="" name="color_id">
-                                            @foreach($objColor as $color)
-                                                <option value="{{ $color->hex_color }}" style="background-color: {{ $color->hex_color }}; width: 100px;height: 30px;border-radius: 50%">{{ $color->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </fieldset>
-                                <fieldset class="male">
-                                    <div class="body-title mb-10">Kich thuoc <span class="tf-color-1">*</span></div>
-                                    <div class="select">
-                                        <select class="" name="size_id">
-                                            @foreach($objSize as $size)
-                                                <option value="{{ $size->id }}">{{ $size->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </fieldset>
-                                <fieldset class="male">
-                                    <div class="body-title mb-10">Kich thuoc ram <span class="tf-color-1">*</span></div>
-                                    <div class="select">
-                                        <select class="" name="ram_size_id">
-                                            @foreach($ram_size as $ram)
-                                                <option value="{{ $ram->id }}">{{ $ram->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <div class="cols gap10">
-                                <button class="tf-button w-full"  type="submit">Them thuoc tinh</button>
-                            </div>
+                    <div class="wg-box">
+                        <div class="gap22 cols">
+                            <fieldset class="category">
+                                <div class="body-title mb-10">San pham <span class="tf-color-1">*</span></div>
+                                <div class="select">
+                                    <select class="" name="product_id">
+                                        @foreach($product as $pro)
+                                            <option value="{{ $pro->id }}">{{ $pro->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </fieldset>
+                            <fieldset class="male">
+                                <div class="body-title mb-10">Mau sac <span class="tf-color-1">*</span></div>
+                                <div class="select">
+                                    <select class="" name="color_id">
+                                        @foreach($objColor as $color)
+                                            <option value="{{ $color->hex_color }}">{{ $color->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </fieldset>
+                            <fieldset class="male">
+                                <div class="body-title mb-10">Kich thuoc <span class="tf-color-1">*</span></div>
+                                <div class="select">
+                                    <select class="" name="size_id">
+                                        @foreach($objSize as $size)
+                                            <option value="{{ $size->id }}">{{ $size->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </fieldset>
+                            <fieldset class="male">
+                                <div class="body-title mb-10">Kich thuoc ram <span class="tf-color-1">*</span></div>
+                                <div class="select">
+                                    <select class="" name="ram_size_id">
+                                        @foreach($ram_size as $ram)
+                                            <option value="{{ $ram->id }}">{{ $ram->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </fieldset>
                         </div>
+                        <div class="cols gap10">
+                            <button class="tf-button w-full"  type="submit">Them thuoc tinh</button>
+                        </div>
+                    </div>
                 </form>
                 <!-- /form-add-product -->
             </div>
