@@ -84,7 +84,7 @@ class ProductController extends Controller
             'brand_id' => $validate['brand_id'],
             'category_id' => $validate['category_id'],
         ]);
-        return redirect()->route('index');
+        return redirect()->route('san-pham.list');
     }
 
     /**
@@ -109,7 +109,30 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $productId = Product::query()->find($id);
+        $request->validate([
+            'name' => 'required|unique:products|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => 'required',
+            'ton_kho' => 'required',
+            'description' => 'required',
+            'brand_id' => 'required',
+            'category_id' => 'required',
+        ]);
+        $file = $request->file('image');
+        if ($file->isValid()) {
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $path = $file->storeAs('products', $fileName, 'public');
+        }
+        $productId->update([
+            'name' => $request->input('name'),
+            'image' => $path,
+            'description' => $request->input('description'),
+            'price' => $request->input('price'),
+            'ton_kho' => $request->input('ton_kho'),
+            'brand_id' => $request->input('brand_id'),
+            'category_id' => $request->input('category_id'),
+        ]);
     }
 
     /**

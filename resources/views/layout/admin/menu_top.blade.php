@@ -372,10 +372,10 @@
                         <span class="image">
                             <img src="images/avatar/user-1.png" alt="">
                         </span>
-                        <span class="flex flex-column">
-                            <span class="body-title mb-2"> {{ Auth::user()->name }}</span>
-                            <span class="text-tiny"> {{ Auth::user()->role }}</span>
-                        </span>
+{{--                        <span class="flex flex-column">--}}
+{{--                            <span class="body-title mb-2"> {{ Auth::user()->name }}</span>--}}
+{{--                            <span class="text-tiny"> {{ Auth::user()->role }}</span>--}}
+{{--                        </span>--}}
                     </span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end has-content" aria-labelledby="dropdownMenuButton3" >

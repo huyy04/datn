@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class ProductVariantController extends Controller
 {
     public function index(){
-        $productVariants = ProductVariant::query()->with(['product','color','size','ram_size'])->get();
+        $productVariants = ProductVariant::query()->with(['product','color','size','ram_size'])->paginate(4);
         return view('admin.thuoctinh.list', compact('productVariants'));
     }
     public function create(){

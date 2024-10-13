@@ -99,8 +99,8 @@
                                         <a href="" class="body-title-2">{{ $value->product->name }}</a>
                                     </div>
                                     <div class="body-text">{{ $value->id }}</div>
-                                    <div class="body-text" style="background-color: {{ $value->color->name }};width: 100px;height: 20px;border-radius: 50%;margin-right: 300px>{{ $value->color->name }} </div>
-                                    <div class="body-text">{{ $value->size->name }}</div>
+                                    <div class="body-text" style="background-color: {{ $value->color->hex_color }};width: 100px;height: 20px;border-radius: 50%;margin-right: 300px"></div>
+                                   <div class="body-text">{{ $value->size->name }}</div>
                                     <div class="name">
                                         <p class="body-title-2">{{ $value->ram_size->name }}</p>
                                     </div>
@@ -124,23 +124,9 @@
                 <div class="divider"></div>
                 <div class="flex items-center justify-between flex-wrap gap10">
                     <div class="text-tiny">Showing 10 entries</div>
-                    <ul class="wg-pagination">
-                        <li>
-                            <a href="#"><i class="icon-chevron-left"></i></a>
-                        </li>
-                        <li>
-                            <a href=""></a>
-                        </li>
-                        <li class="active">
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon-chevron-right"></i></a>
-                        </li>
-                    </ul>
+                    <div class="pagination">
+                        {{ $productVariants->links() }}
+                    </div>
 
                 </div>
 
