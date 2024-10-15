@@ -18,53 +18,47 @@
                         <i class="icon-chevron-right"></i>
                     </li>
                     <li>
-                        <div class="text-tiny">Add product</div>
+                        <div class="text-tiny">Sua san pham</div>
                     </li>
                 </ul>
             </div>
             <!-- form-add-product -->
-            <form class="tf-section-2 form-add-product" >
+            <form class="tf-section-2 form-add-product" action="" >
                 <div class="wg-box">
                     <fieldset class="name">
                         <div class="body-title mb-10">Product name <span class="tf-color-1">*</span></div>
-                        <input class="mb-10" type="text" placeholder="Enter product name" name="text" tabindex="0" value="" aria-required="true" required="">
+                        <input class="mb-10" type="text" placeholder="Enter product name" name="name" tabindex="0" value="{{ $productId->name }}" aria-required="true" required="">
                         <div class="text-tiny">Do not exceed 20 characters when entering the product name.</div>
                     </fieldset>
+                    <fieldset class="name">
+                        <div class="body-title mb-10">Product name <span class="tf-color-1">*</span></div>
+                        <input class="mb-10" type="text" placeholder="Enter product name" name="price" tabindex="0" value="{{ $productId->price }}" aria-required="true" required="">
+                    </fieldset>
                     <div class="gap22 cols">
-                        <fieldset class="category">
+                        <fieldset class="">
                             <div class="body-title mb-10">Category <span class="tf-color-1">*</span></div>
                             <div class="select">
-                                <select class="">
-                                    <option>Choose category</option>
-                                    <option>Shop</option>
-                                    <option>Product</option>
+                                <select class="" name="category_id">
+                                    @foreach($category as $cate)
+                                        <option value="{{ $cate->id }}" @if($productId->category_id === $cate->id) {{ 'selected' }} @endif>{{ $cate->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </fieldset>
-                        <fieldset class="male">
-                            <div class="body-title mb-10">Gender <span class="tf-color-1">*</span></div>
+                        <fieldset class="">
+                            <div class="body-title mb-10">Brand <span class="tf-color-1">*</span></div>
                             <div class="select">
-                                <select class="">
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
+                                <select class="" name="brand_id">
+                                    @foreach($brand as $br)
+                                        <option value="{{ $br->id }}" @if($productId->brand_id === $br->id) {{ 'selected' }} @endif>{{ $br->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </fieldset>
                     </div>
-                    <fieldset class="brand">
-                        <div class="body-title mb-10">Brand <span class="tf-color-1">*</span></div>
-                        <div class="select">
-                            <select class="">
-                                <option>Choose category</option>
-                                <option>Shop</option>
-                                <option>Product</option>
-                            </select>
-                        </div>
-                    </fieldset>
                     <fieldset class="description">
                         <div class="body-title mb-10">Description <span class="tf-color-1">*</span></div>
-                        <textarea class="mb-10" name="description" placeholder="Description" tabindex="0" aria-required="true" required=""></textarea>
+                        <textarea class="mb-10" name="description" placeholder="Description" tabindex="0" aria-required="true" required="">{{ $productId->description }}</textarea>
                         <div class="text-tiny">Do not exceed 100 characters when entering the product name.</div>
                     </fieldset>
                 </div>
@@ -73,7 +67,7 @@
                         <div class="body-title mb-10">Upload images</div>
                         <div class="upload-image mb-16">
                             <div class="item">
-                                <img src="images/upload/upload-1.png" alt="">
+                                <img src="{{ asset('storage/'.$productId->image) }}" alt="">
                             </div>
                             <div class="item">
                                 <img src="images/upload/upload-2.png" alt="">
@@ -90,38 +84,8 @@
                         </div>
                         <div class="body-text">You need to add at least 4 images. Pay attention to the quality of the pictures you add, comply with the background color standards. Pictures must be in certain dimensions. Notice that the product shows all the details</div>
                     </fieldset>
-                    <div class="cols gap22">
-                        <fieldset class="name">
-                            <div class="body-title mb-10">Add size</div>
-                            <div class="select mb-10">
-                                <select class="">
-                                    <option>EU - 44</option>
-                                    <option>EU - 40</option>
-                                    <option>EU - 50</option>
-                                </select>
-                            </div>
-                            <div class="list-box-value mb-10">
-                                <div class="box-value-item"><div class="body-text">EU - 38.5</div></div>
-                                <div class="box-value-item"><div class="body-text">EU - 39</div></div>
-                                <div class="box-value-item"><div class="body-text">EU - 40</div></div>
-                            </div>
-                            <div class="list-box-value">
-                                <div class="box-value-item"><div class="body-text">EU - 41.5</div></div>
-                                <div class="box-value-item"><div class="body-text">EU - 42</div></div>
-                                <div class="box-value-item"><div class="body-text">EU - 43</div></div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="name">
-                            <div class="body-title mb-10">Product date</div>
-                            <div class="select">
-                                <input type="date" name="date" value="2023-11-20">
-                            </div>
-                        </fieldset>
-                    </div>
                     <div class="cols gap10">
                         <button class="tf-button w-full" type="submit">Add product</button>
-                        <button class="tf-button style-1 w-full" type="submit">Save product</button>
-                        <a href="#" class="tf-button style-2 w-full">Schedule</a>
                     </div>
                 </div>
             </form>

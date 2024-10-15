@@ -101,7 +101,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $productId = Product::query()->find($id);
+        $brand = Brand::all();
+        $category = Category::all();
+        return view('admin.sanpham.edit', compact('productId', 'brand', 'category'));
     }
 
     /**

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\API\ProductController;
+use App\Http\Controllers\Admin\API\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,21 @@ use App\Http\Controllers\Admin\API\ProductController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('products', [ProductController::class, 'index']);
+Route::controller(ProductController::class)
+    ->prefix('san-pham')
+    ->group(function () {
+        Route::get('/', 'index');
+        Route::get('/{id}', 'show');
+        Route::post('/store', 'store');
+        Route::put('/update/{id}', 'update');
+        Route::delete('/delete/{id}', 'destroy');
+});
+
+Route::controller(CategoryController::class)
+    ->prefix('danh-muc')
+    ->group(function () {
+        Route::get('/', 'index');
+        Route::post('store', 'store');
+        Route::put('update/{id}', 'update');
+        Route::delete('delete/{id}', 'delete');
+    });
