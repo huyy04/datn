@@ -1,5 +1,6 @@
 @extends('layout.admin.layout')
 @section('content')
+    <!-- main-content -->
     <div class="main-content">
         <!-- main-content-wrap -->
         <div class="main-content-inner">
@@ -270,4 +271,5 @@
         </div>
         <!-- /bottom-page -->
     </div>
+    <!-- /main-content -->
 @endsection

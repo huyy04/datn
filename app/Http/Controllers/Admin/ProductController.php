@@ -34,6 +34,16 @@ class ProductController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     */
+    public function show(string $id)
+    {
+        $productId = Product::query()->find($id);
+        return view('admin.sanpham.show', compact('productId'));
+    }
+
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()
@@ -89,15 +99,6 @@ class ProductController extends Controller
 
     /**
      * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $productId = Product::query()->find($id);
-        return view('admin.sanpham.show', compact('productId'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
