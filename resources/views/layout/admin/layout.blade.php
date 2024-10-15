@@ -24,6 +24,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/style.css') }}">
+<<<<<<< HEAD
+=======
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+>>>>>>> huy04
 
 
 
@@ -67,11 +71,17 @@
                     <!-- main-content-wrap -->
                     <div class="main-content-inner">
                         <!-- main-content-wrap -->
+<<<<<<< HEAD
                             @yield('content')
                         <!-- /main-content-wrap -->
                     </div>
                     <!-- /main-content-wrap -->
                     <!-- bottom-page -->
+=======
+                        @yield('content')
+                        <!-- /main-content-wrap -->
+                    </div>
+>>>>>>> huy04
                     <div class="bottom-page">
                         <div class="body-text">Copyright © 2024 Remos. Design with</div>
                         <i class="icon-heart"></i>
@@ -99,7 +109,11 @@
 <script src="{{ asset('assets_admin/js/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset('assets_admin/js/carousel.js') }}"></script>
 <script src="{{ asset('assets_admin/js/main.js') }}"></script>
+<<<<<<< HEAD
 
+=======
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+>>>>>>> huy04
 </body>
 
 

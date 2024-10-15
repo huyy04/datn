@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductVariantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,12 +43,12 @@ Route::get('/login', function () {
 
 
 // Phân quyền admin
-Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/admin', function () {
-        return view('admin.home');})->name('admin.home');
-Route::get('/admin/category-list', function () {
-    return view('admin.danhmuc.list');
-});
+//Route::middleware(['auth', 'isAdmin'])->group(function () {
+//    Route::get('/admin', function () {
+//        return view('admin.home');})->name('admin.home');
+//Route::get('/admin/category-list', function () {
+//    return view('admin.danhmuc.list');
+//});
 Route::controller(BrandController::class)
     ->prefix('brand')
     ->group(function () {
@@ -73,17 +74,26 @@ Route::controller(CategoryController::class)
 });
 
 Route::controller(ProductController::class)
-    ->prefix('product')
+    ->prefix('san-pham')
     ->group(function () {
-        Route::get('list', 'index')->name('product.index');
-        Route::get('search', 'search')->name('product.search');
-        Route::get('create', 'create')->name('product.create');
-        Route::post('store', 'store')->name('product.store');
-        Route::get('edit/{id}', 'edit')->name('product.edit');
-        Route::post('edit/{id}', 'update')->name('product.update');
-        Route::delete('delete/{id}', 'destroy')->name('product.destroy');
+        Route::get('list', 'index')->name('san-pham.index');
+        Route::get('search', 'search')->name('san-pham.search');
+        Route::get('create', 'create')->name('san-pham.create');
+        Route::post('store', 'store')->name('san-pham.store');
+        Route::get('show/{id}', 'show')->name('san-pham.show');
+        Route::get('edit/{id}', 'edit')->name('san-pham.edit');
+        Route::post('edit/{id}', 'update')->name('san-pham.update');
+        Route::delete('delete/{id}', 'destroy')->name('san-pham.destroy');
 });
+
+Route::controller(ProductVariantController::class)->prefix('thuoc-tinh')->group(function () {
+    Route::get('list', 'index')->name('thuoc-tinh.index');
+    Route::get('search', 'search')->name('thuoc-tinh.search');
+    Route::get('create', 'create')->name('thuoc-tinh.create');
+    Route::post('store', 'store')->name('thuoc-tinh.store');
 });
+
+//});
 
 
 require __DIR__.'/auth.php';

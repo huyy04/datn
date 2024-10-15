@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::query()->with('category')->paginate(5);
+        $products = Product::query()->with('category')->paginate(4);
         return view('admin.sanpham.list', compact('products'));
     }
 
@@ -92,7 +92,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $productId = Product::query()->find($id);
+        $productId = Product::query()->with('variant')->find($id);
         return view('admin.sanpham.show', compact('productId'));
     }
 
