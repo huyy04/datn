@@ -4,9 +4,6 @@
     @if($search->isEmpty())
         <h1>Không tìm thấy kết quả nào !</h1>
     @else
-        <div class="main-content">
-            <!-- main-content-wrap -->
-            <div class="main-content-inner">
                 <!-- main-content-wrap -->
                 <div class="main-content-wrap">
                     <div class="flex items-center flex-wrap justify-between gap20 mb-27">
@@ -150,15 +147,5 @@
                     <!-- /product-list -->
                 </div>
                 <!-- /main-content-wrap -->
-            </div>
-            <!-- /main-content-wrap -->
-            <!-- bottom-page -->
-            <div class="bottom-page">
-                <div class="body-text">Copyright © 2024 Remos. Design with</div>
-                <i class="icon-heart"></i>
-                <div class="body-text">by <a href="https://themeforest.net/user/themesflat/portfolio">Themesflat</a> All rights reserved.</div>
-            </div>
-            <!-- /bottom-page -->
-        </div>
     @endif
 @endsection

@@ -2,65 +2,61 @@
 @section('content')
     <!-- main-content -->
     @if($productId)
-        <div class="main-content">
-            <!-- main-content-wrap -->
-            <div class="main-content-inner">
-                <!-- main-content-wrap -->
                 <div class="main-content-wrap">
-                    {{--                <div class="flex items-center flex-wrap justify-between gap20 mb-27">--}}
-                    {{--                    <h3>Product Detail</h3>--}}
-                    {{--                    <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">--}}
-                    {{--                        <li>--}}
-                    {{--                            <a href="index.html"><div class="text-tiny">Dashboard</div></a>--}}
-                    {{--                        </li>--}}
-                    {{--                        <li>--}}
-                    {{--                            <i class="icon-chevron-right"></i>--}}
-                    {{--                        </li>--}}
-                    {{--                        <li>--}}
-                    {{--                            <a href="#"><div class="text-tiny">Ecommerce</div></a>--}}
-                    {{--                        </li>--}}
-                    {{--                        <li>--}}
-                    {{--                            <i class="icon-chevron-right"></i>--}}
-                    {{--                        </li>--}}
-                    {{--                        <li>--}}
-                    {{--                            <div class="text-tiny">Product Detail</div>--}}
-                    {{--                        </li>--}}
-                    {{--                    </ul>--}}
-                    {{--                </div>--}}
+                                    <div class="flex items-center flex-wrap justify-between gap20 mb-27">
+                                        <h3>Product Detail</h3>
+                                        <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
+                                            <li>
+                                                <a href="index.html"><div class="text-tiny">Dashboard</div></a>
+                                            </li>
+                                            <li>
+                                                <i class="icon-chevron-right"></i>
+                                            </li>
+                                            <li>
+                                                <a href="#"><div class="text-tiny">Ecommerce</div></a>
+                                            </li>
+                                            <li>
+                                                <i class="icon-chevron-right"></i>
+                                            </li>
+                                            <li>
+                                                <div class="text-tiny">Product Detail</div>
+                                            </li>
+                                        </ul>
+                                    </div>
                     <!-- Product Detail -->
                     <div class="wg-box">
                         <div class="tf-main-product section-image-zoom flex">
                             <div class="tf-product-media-wrap">
                                 <div class="thumbs-slider">
-                                    <div class="swiper tf-product-media-thumbs other-image-zoom" data-direction="vertical">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <img src="images/products/product-detail-thumbs-1.png" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <img src="images/products/product-detail-thumbs-2.png" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <img src="images/products/product-detail-thumbs-3.png" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <img src="images/products/product-detail-thumbs-4.png" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <img src="images/products/product-detail-thumbs-5.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="swiper tf-product-media-thumbs other-image-zoom" data-direction="vertical">--}}
+{{--                                        <div class="swiper-wrapper">--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <div class="item">--}}
+{{--                                                    <img src="images/products/product-detail-thumbs-1.png" alt="">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <div class="item">--}}
+{{--                                                    <img src="images/products/product-detail-thumbs-2.png" alt="">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <div class="item">--}}
+{{--                                                    <img src="images/products/product-detail-thumbs-3.png" alt="">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <div class="item">--}}
+{{--                                                    <img src="images/products/product-detail-thumbs-4.png" alt="">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <div class="item">--}}
+{{--                                                    <img src="images/products/product-detail-thumbs-5.png" alt="">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="swiper tf-product-media-main" id="gallery-swiper-started">
                                         <div class="swiper-wrapper" >
                                             <div class="swiper-slide">
@@ -73,31 +69,31 @@
                                             <div class="swiper-slide">
                                                 <div class="item">
                                                     <a href="images/products/product-detail-2.png" target="_blank" data-pswp-width="500px" data-pswp-height="500px">
-                                                        <img class="tf-image-zoom" data-zoom="images/products/product-detail-2.png" src="images/products/product-detail-2.png" alt="">
+                                                        <img class="tf-image-zoom" data-zoom="images/products/product-detail-2.png" src="" alt="">
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <a href="images/products/product-detail-3.png" target="_blank" data-pswp-width="500px" data-pswp-height="500px">
-                                                        <img class="tf-image-zoom" data-zoom="images/products/product-detail-3.png" src="images/products/product-detail-3.png" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <a href="images/products/product-detail-4.png" target="_blank" data-pswp-width="500px" data-pswp-height="500px">
-                                                        <img class="tf-image-zoom" data-zoom="images/products/product-detail-4.png" src="images/products/product-detail-4.png" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <a href="images/products/product-detail-5.png" target="_blank" data-pswp-width="500px" data-pswp-height="500px">
-                                                        <img class="tf-image-zoom" data-zoom="images/products/product-detail-5.png" src="images/products/product-detail-5.png" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <div class="item">--}}
+{{--                                                    <a href="images/products/product-detail-3.png" target="_blank" data-pswp-width="500px" data-pswp-height="500px">--}}
+{{--                                                        <img class="tf-image-zoom" data-zoom="images/products/product-detail-3.png" src="images/products/product-detail-3.png" alt="">--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <div class="item">--}}
+{{--                                                    <a href="images/products/product-detail-4.png" target="_blank" data-pswp-width="500px" data-pswp-height="500px">--}}
+{{--                                                        <img class="tf-image-zoom" data-zoom="images/products/product-detail-4.png" src="images/products/product-detail-4.png" alt="">--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <div class="item">--}}
+{{--                                                    <a href="images/products/product-detail-5.png" target="_blank" data-pswp-width="500px" data-pswp-height="500px">--}}
+{{--                                                        <img class="tf-image-zoom" data-zoom="images/products/product-detail-5.png" src="images/products/product-detail-5.png" alt="">--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                         </div>
                                         <div class="swiper-button-next button-style-arrow thumbs-next"></div>
                                         <div class="swiper-button-prev button-style-arrow thumbs-prev"></div>
@@ -248,14 +244,6 @@
                 <!-- /main-content-wrap -->
             </div>
             <!-- /main-content-wrap -->
-            <!-- bottom-page -->
-            <div class="bottom-page">
-                <div class="body-text">Copyright © 2024 Remos. Design with</div>
-                <i class="icon-heart"></i>
-                <div class="body-text">by <a href="https://themeforest.net/user/themesflat/portfolio">Themesflat</a> All rights reserved.</div>
-            </div>
-            <!-- /bottom-page -->
-        </div>
     @else
         <span>k co du lieu</span>
     @endif

@@ -1,7 +1,5 @@
 @extends('layout.admin.layout')
 @section('content')
-    <div class="main-content">
-        <div class="main-content-inner">
         <!-- main-content-wrap -->
         <div class="main-content-wrap">
             <div class="flex items-center flex-wrap justify-between gap20 mb-27">
@@ -88,11 +86,7 @@
                         <ul class="flex flex-column">
                             <li class="product-item gap14">
                                 <div class="image no-bg">
-{{--                                    @if($value->product->image)--}}
-{{--                                        <img src="{{ asset($value->product->image) }}" alt="">--}}
-{{--                                    @else--}}
-{{--                                        <span>k co anh</span>--}}
-{{--                                    @endif--}}
+
                                 </div>
                                 <div class="flex items-center justify-between gap20 flex-grow">
                                     <div class="name">
@@ -148,6 +142,4 @@
             <!-- /product-list -->
         </div>
         <!-- /main-content-wrap -->
-    </div>
-    </div>
 @endsection

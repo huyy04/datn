@@ -5,7 +5,7 @@
 <!--<![endif]-->
 
 
-<!-- Mirrored from themesflat.co/html/remos/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jul 2024 17:22:56 GMT -->
+<!-- Mirrored from themesflat.co/html/remos/product-detail-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jul 2024 17:24:11 GMT -->
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -22,8 +22,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/animation.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/style.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
 
@@ -34,8 +34,8 @@
     <link rel="stylesheet" href="{{ asset('assets_admin/icon/style.css') }}">
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="{{ url('assets_admin/images/favicon.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ url('assets_admin/images/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('assets_admin/images/favicon.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('assets_admin/images/favicon.png') }}">
 
 </head>
 
@@ -63,7 +63,22 @@
                 @include('layout.admin.menu_top')
                 <!-- /header-dashboard -->
                 <!-- main-content -->
-                @yield('content')
+                <div class="main-content">
+                    <!-- main-content-wrap -->
+                    <div class="main-content-inner">
+                        <!-- main-content-wrap -->
+                            @yield('content')
+                        <!-- /main-content-wrap -->
+                    </div>
+                    <!-- /main-content-wrap -->
+                    <!-- bottom-page -->
+                    <div class="bottom-page">
+                        <div class="body-text">Copyright © 2024 Remos. Design with</div>
+                        <i class="icon-heart"></i>
+                        <div class="body-text">by <a href="https://themeforest.net/user/themesflat/portfolio">Themesflat</a> All rights reserved.</div>
+                    </div>
+                    <!-- /bottom-page -->
+                </div>
                 <!-- /main-content -->
             </div>
             <!-- /section-content-right -->
@@ -79,19 +94,14 @@
 <script src="{{ asset('assets_admin/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets_admin/js/bootstrap-select.min.js') }}"></script>
 <script src="{{ asset('assets_admin/js/zoom.js') }}"></script>
-<script src="{{ asset('assets_admin/js/apexcharts/apexcharts.js') }}"></script>
-<script src="{{ asset('assets_admin/js/apexcharts/line-chart-1.js') }}"></script>
-<script src="{{ asset('assets_admin/js/apexcharts/line-chart-2.js') }}"></script>
-<script src="{{ asset('assets_admin/js/apexcharts/line-chart-3.js') }}"></script>
-<script src="{{ asset('assets_admin/js/apexcharts/line-chart-4.js') }}"></script>
-<script src="{{ asset('assets_admin/js/apexcharts/line-chart-5.js') }}"></script>
-<script src="{{ asset('assets_admin/js/apexcharts/line-chart-6.js') }}"></script>
 <script src="{{ asset('assets_admin/js/switcher.js') }}"></script>
 <script src="{{ asset('assets_admin/js/theme-settings.js') }}"></script>
+<script src="{{ asset('assets_admin/js/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('assets_admin/js/carousel.js') }}"></script>
 <script src="{{ asset('assets_admin/js/main.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 
 
-<!-- Mirrored from themesflat.co/html/remos/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jul 2024 17:23:42 GMT -->
+<!-- Mirrored from themesflat.co/html/remos/product-detail-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jul 2024 17:24:20 GMT -->
 </html>
