@@ -82,7 +82,7 @@ Route::controller(ProductController::class)
         Route::get('create', 'create')->name('san-pham.create');
         Route::post('store', 'store')->name('san-pham.store');
         Route::get('edit/{id}', 'edit')->name('san-pham.edit');
-        Route::post('edit/{id}', 'update')->name('san-pham.update');
+        Route::post('update/{id}', 'update')->name('san-pham.update');
         Route::delete('delete/{id}', 'destroy')->name('san-pham.destroy');
 });
 Route::controller(ProductVariantController::class)->prefix('thuoc-tinh')->group(function () {

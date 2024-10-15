@@ -113,7 +113,9 @@
                                                 <a href="{{ route('san-pham.show',$value->id) }}"><i class="icon-eye"></i></a>
                                             </div>
                                             <div class="item edit">
-                                                <i class="icon-edit-3"></i>
+                                                <a href="{{ route('san-pham.edit',$value->id) }}">
+                                                    <i class="icon-edit-3"></i>
+                                                </a>
                                             </div>
                                             <div class="item trash">
                                                 <i class="icon-trash-2"></i>
