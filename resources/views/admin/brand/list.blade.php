@@ -143,7 +143,5 @@
                 <!-- /product-list -->
             </div>
             <!-- /main-content-wrap -->
-        </div>
-        <!-- /main-content-wrap -->
 
 @endsection
