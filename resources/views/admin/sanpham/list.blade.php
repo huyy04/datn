@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="text-tiny">entries</div>
                             </div>
-                            <form class="form-search" action="{{ route('product.search') }}" method="get" >
+                            <form class="form-search" action="{{ route('search') }}" method="get" >
                                 <fieldset class="name">
                                     <input type="text" placeholder="Search here..." class="" name="search" tabindex="2" value="" aria-required="true" >
                                 </fieldset>
@@ -53,7 +53,7 @@
                                 </div>
                             </form>
                         </div>
-                        <a class="tf-button style-1 w208" href="{{ route('product.create') }}"><i class="icon-plus"></i>Add new</a>
+                        <a class="tf-button style-1 w208" href="{{ route('create') }}"><i class="icon-plus"></i>Add new</a>
                     </div>
                     <div class="wg-table table-product-list">
                         <ul class="table-title flex gap20 mb-14">
@@ -110,12 +110,10 @@
                                         <div class="body-text">{{ $value->created_at }}</div>
                                         <div class="list-icon-function">
                                             <div class="item eye">
-                                                <a href=""><i class="icon-eye"></i></a>
+                                                <a href="{{ route('show',$value->id) }}"><i class="icon-eye"></i></a>
                                             </div>
                                             <div class="item edit">
-                                                <a href="{{ route('product.edit',$value->id) }}">
-                                                    <i class="icon-edit-3"></i>
-                                                </a>
+                                                <i class="icon-edit-3"></i>
                                             </div>
                                             <div class="item trash">
                                                 <i class="icon-trash-2"></i>
@@ -130,25 +128,27 @@
                     <div class="divider"></div>
                     <div class="flex items-center justify-between flex-wrap gap10">
                         <div class="text-tiny">Showing 10 entries</div>
-{{--                        <ul class="wg-pagination">--}}
-{{--                            <li>--}}
-{{--                                <a href="#"><i class="icon-chevron-left"></i></a>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <a href="{{ $products->links() }}"></a>--}}
-{{--                            </li>--}}
-
-{{--                            <li>--}}
-{{--                                <a href="#"><i class="icon-chevron-right"></i></a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-                        <div class="pagination">
-                            {{ $products->links() }}
-                        </div>
+                        <ul class="wg-pagination">
+                            <li>
+                                <a href="#"><i class="icon-chevron-left"></i></a>
+                            </li>
+                            <li>
+                                <a href=""></a>
+                            </li>
+                            <li class="active">
+                                <a href="#">2</a>
+                            </li>
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon-chevron-right"></i></a>
+                            </li>
+                        </ul>
 
                     </div>
 
-
+                    {{ $products->links() }}
                 </div>
                 <!-- /product-list -->
             </div>
