@@ -122,34 +122,34 @@
                     <div class="tf-product-media-wrap">
                         <div class="thumbs-slider">
                             <div class="swiper tf-product-media-thumbs other-image-zoom" data-direction="vertical">
-                                                                    <div class="swiper-wrapper">
-                                                                        <div class="swiper-slide">
-                                                                            <div class="item">
-                                                                                <img src="images/products/product-detail-thumbs-1.png" alt="">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                            <div class="item">
-                                                                                <img src="images/products/product-detail-thumbs-2.png" alt="">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                            <div class="item">
-                                                                                <img src="images/products/product-detail-thumbs-3.png" alt="">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                            <div class="item">
-                                                                                <img src="images/products/product-detail-thumbs-4.png" alt="">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="swiper-slide">
-                                                                            <div class="item">
-                                                                                <img src="images/products/product-detail-thumbs-5.png" alt="">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="item">
+                                            <img src="images/products/product-detail-thumbs-1.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="item">
+                                            <img src="images/products/product-detail-thumbs-2.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="item">
+                                            <img src="images/products/product-detail-thumbs-3.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="item">
+                                            <img src="images/products/product-detail-thumbs-4.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="item">
+                                            <img src="images/products/product-detail-thumbs-5.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="swiper tf-product-media-main" id="gallery-swiper-started">
                                 <div class="swiper-wrapper" >
                                     <div class="swiper-slide">
