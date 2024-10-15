@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
 
@@ -66,35 +67,9 @@
                     <!-- main-content-wrap -->
                     <div class="main-content-inner">
                         <!-- main-content-wrap -->
-                        <div class="main-content-wrap">
-                            <div class="flex items-center flex-wrap justify-between gap20 mb-27">
-                                <h3>Product Detail</h3>
-                                <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
-                                    <li>
-                                        <a href="index.html"><div class="text-tiny">Dashboard</div></a>
-                                    </li>
-                                    <li>
-                                        <i class="icon-chevron-right"></i>
-                                    </li>
-                                    <li>
-                                        <a href="#"><div class="text-tiny">Ecommerce</div></a>
-                                    </li>
-                                    <li>
-                                        <i class="icon-chevron-right"></i>
-                                    </li>
-                                    <li>
-                                        <div class="text-tiny">Product Detail</div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Product Detail -->
-                            @yield('content')
-                            <!-- /Product Detail -->
-                        </div>
+                        @yield('content')
                         <!-- /main-content-wrap -->
                     </div>
-                    <!-- /main-content-wrap -->
-                    <!-- bottom-page -->
                     <div class="bottom-page">
                         <div class="body-text">Copyright © 2024 Remos. Design with</div>
                         <i class="icon-heart"></i>
@@ -127,6 +102,7 @@
 <script src="{{ asset('assets_admin/js/switcher.js') }}"></script>
 <script src="{{ asset('assets_admin/js/theme-settings.js') }}"></script>
 <script src="{{ asset('assets_admin/js/main.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 

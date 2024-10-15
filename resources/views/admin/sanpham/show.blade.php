@@ -1,63 +1,61 @@
 @extends('layout.admin.layout')
 @section('content')
-    <!-- main-content -->
     @if($productId)
-        <!-- main-content-wrap -->
         <div class="main-content-wrap">
-            {{--                <div class="flex items-center flex-wrap justify-between gap20 mb-27">--}}
-            {{--                    <h3>Product Detail</h3>--}}
-            {{--                    <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">--}}
-            {{--                        <li>--}}
-            {{--                            <a href="index.html"><div class="text-tiny">Dashboard</div></a>--}}
-            {{--                        </li>--}}
-            {{--                        <li>--}}
-            {{--                            <i class="icon-chevron-right"></i>--}}
-            {{--                        </li>--}}
-            {{--                        <li>--}}
-            {{--                            <a href="#"><div class="text-tiny">Ecommerce</div></a>--}}
-            {{--                        </li>--}}
-            {{--                        <li>--}}
-            {{--                            <i class="icon-chevron-right"></i>--}}
-            {{--                        </li>--}}
-            {{--                        <li>--}}
-            {{--                            <div class="text-tiny">Product Detail</div>--}}
-            {{--                        </li>--}}
-            {{--                    </ul>--}}
-            {{--                </div>--}}
+            <div class="flex items-center flex-wrap justify-between gap20 mb-27">
+                <h3>Product Detail</h3>
+                <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
+                    <li>
+                        <a href="index.html"><div class="text-tiny">Dashboard</div></a>
+                    </li>
+                    <li>
+                        <i class="icon-chevron-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"><div class="text-tiny">Ecommerce</div></a>
+                    </li>
+                    <li>
+                        <i class="icon-chevron-right"></i>
+                    </li>
+                    <li>
+                        <div class="text-tiny">Product Detail</div>
+                    </li>
+                </ul>
+            </div>
             <!-- Product Detail -->
             <div class="wg-box">
                 <div class="tf-main-product section-image-zoom flex">
                     <div class="tf-product-media-wrap">
                         <div class="thumbs-slider">
                             <div class="swiper tf-product-media-thumbs other-image-zoom" data-direction="vertical">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="item">
-                                            <img src="images/products/product-detail-thumbs-1.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="item">
-                                            <img src="images/products/product-detail-thumbs-2.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="item">
-                                            <img src="images/products/product-detail-thumbs-3.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="item">
-                                            <img src="images/products/product-detail-thumbs-4.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="item">
-                                            <img src="images/products/product-detail-thumbs-5.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                                                    <div class="swiper-wrapper">
+                                                                        <div class="swiper-slide">
+                                                                            <div class="item">
+                                                                                <img src="images/products/product-detail-thumbs-1.png" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                            <div class="item">
+                                                                                <img src="images/products/product-detail-thumbs-2.png" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                            <div class="item">
+                                                                                <img src="images/products/product-detail-thumbs-3.png" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                            <div class="item">
+                                                                                <img src="images/products/product-detail-thumbs-4.png" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="swiper-slide">
+                                                                            <div class="item">
+                                                                                <img src="images/products/product-detail-thumbs-5.png" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                             <div class="swiper tf-product-media-main" id="gallery-swiper-started">
                                 <div class="swiper-wrapper" >
                                     <div class="swiper-slide">
@@ -70,7 +68,7 @@
                                     <div class="swiper-slide">
                                         <div class="item">
                                             <a href="images/products/product-detail-2.png" target="_blank" data-pswp-width="500px" data-pswp-height="500px">
-                                                <img class="tf-image-zoom" data-zoom="images/products/product-detail-2.png" src="images/products/product-detail-2.png" alt="">
+                                                <img class="tf-image-zoom" data-zoom="images/products/product-detail-2.png" src="" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -110,35 +108,35 @@
                             </div>
                             <div class="tf-product-info-variant-picker">
 
-                                    <div class="variant-picker-item">
-                                        <div class="variant-picker-label body-text">
-                                            Color: <span class="body-title-2 variant-picker-label-value"></span>
-                                        </div>
-                                        @foreach($productId->variant as $colors)
+                                <div class="variant-picker-item">
+                                    <div class="variant-picker-label body-text">
+                                        Color: <span class="body-title-2 variant-picker-label-value"></span>
+                                    </div>
+                                    @foreach($productId->variant as $colors)
                                         <div class="variant-picker-values" style="display: inline-block">
                                             <input id="values-{{ $colors->color->name }}" type="radio" name="color">
                                             <label class="radius-60" for="values-{{ $colors->color->name }}" data-value="{{ $colors->color->name }}">
                                                 <span class="btn-checkbox bg-color-{{ $colors->color->name }}" style="background-color: {{ $colors->color->hex_color }}"></span>
                                             </label>
                                         </div>
-                                        @endforeach
-                                    </div>
+                                    @endforeach
+                                </div>
 
-                                        <div class="variant-picker-item">
-                                            <div class="variant-picker-label body-text">
-                                                Size: <span class="body-title-2 variant-picker-label-value"></span>
-                                            </div>
-                                            @foreach($productId->variant as $sizes)
-                                            <div class="variant-picker-values" style="display: inline-block">
-                                                <input type="radio" name="size" id="values-{{ $sizes->size->name }}" checked>
-                                                <label class="style-text" style="width: 70px" for="values-{{ $sizes->size->name }}" data-value="{{ $sizes->size->name }}">
-                                                    <div class="body-title-2">
-                                                        {{ $sizes->size->name }}
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            @endforeach
+                                <div class="variant-picker-item">
+                                    <div class="variant-picker-label body-text">
+                                        Size: <span class="body-title-2 variant-picker-label-value"></span>
+                                    </div>
+                                    @foreach($productId->variant as $sizes)
+                                        <div class="variant-picker-values" style="display: inline-block">
+                                            <input type="radio" name="size" id="values-{{ $sizes->size->name }}" checked>
+                                            <label class="style-text" style="width: 70px" for="values-{{ $sizes->size->name }}" data-value="{{ $sizes->size->name }}">
+                                                <div class="body-title-2">
+                                                    {{ $sizes->size->name }}
+                                                </div>
+                                            </label>
                                         </div>
+                                    @endforeach
+                                </div>
                                 <div class="tf-product-info-quantity">
                                     <div class="quantity-title body-text">Quantity</div>
                                     <div class="wg-quantity">
@@ -230,10 +228,10 @@
                                     <div class="body-title-2">Guarantee Safe Checkout</div>
                                 </div>
                                 <div class="tf-payment flex gap10">
-                                    <img src="images/item-background/payment-1.png" alt="">
-                                    <img src="images/item-background/payment-2.png" alt="">
-                                    <img src="images/item-background/payment-3.png" alt="">
-                                    <img src="images/item-background/payment-4.png" alt="">
+                                    <img src="{{ asset('assets_admin/images/item-background/payment-1.png') }}" alt="">
+                                    <img src="{{ asset('assets_admin/images/item-background/payment-2.png') }}" alt="">
+                                    <img src="{{ asset('assets_admin/images/item-background/payment-3.png') }}" alt="">
+                                    <img src="{{ asset('assets_admin/images/item-background/payment-4.png') }}" alt="">
                                 </div>
                             </div>
                         </div>

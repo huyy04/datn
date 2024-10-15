@@ -12,14 +12,14 @@
             <div class="center-item">
                 <div class="center-heading">Main Home</div>
                 <ul class="menu-list">
-                    <li class="menu-item has-children active">
+                    <li class="menu-item has-children">
                         <a href="javascript:void(0);" class="menu-item-button">
                             <div class="icon"><i class="icon-grid"></i></div>
                             <div class="text">Dashboard</div>
                         </a>
-                        <ul class="sub-menu" style="display: block;">
+                        <ul class="sub-menu">
                             <li class="sub-menu-item">
-                                <a href="index.html" class="active">
+                                <a href="index.html" class="">
                                     <div class="text">Home</div>
                                 </a>
                             </li>
@@ -30,12 +30,12 @@
             <div class="center-item">
                 <div class="center-heading">All page</div>
                 <ul class="menu-list">
-                    <li class="menu-item has-children">
+                    <li class="menu-item has-children active">
                         <a href="javascript:void(0);" class="menu-item-button">
                             <div class="icon"><i class="icon-shopping-cart"></i></div>
                             <div class="text">Ecommerce</div>
                         </a>
-                        <ul class="sub-menu">
+                        <ul class="sub-menu" style="display: block;">
                             <li class="sub-menu-item">
                                 <a href="add-product.html" class="">
                                     <div class="text">Add Product</div>
@@ -47,7 +47,7 @@
                                 </a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="product-detail-1.html" class="">
+                                <a href="product-detail-1.html" class="active">
                                     <div class="text">Product Detail</div>
                                 </a>
                             </li>
@@ -60,12 +60,12 @@
                         </a>
                         <ul class="sub-menu">
                             <li class="sub-menu-item">
-                                <a href="{{ route('danhmuc.list') }}"" class="">
+                                <a href="category-list.html" class="">
                                     <div class="text">Category list</div>
                                 </a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="{{route('danhmuc.create')}}" class="">
+                                <a href="new-category.html" class="">
                                     <div class="text">New category</div>
                                 </a>
                             </li>

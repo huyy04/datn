@@ -45,7 +45,7 @@
                             </div>
                             <div class="text-tiny">entries</div>
                         </div>
-                        <form class="form-search" action="{{ route('product.search') }}" method="get" >
+                        <form class="form-search" action="{{ route('san-pham.search') }}" method="get" >
                             <fieldset class="name">
                                 <input type="text" placeholder="Search here..." class="" name="search" tabindex="2" value="" aria-required="true" >
                             </fieldset>
@@ -64,9 +64,9 @@
                         <li>
                             <div class="body-title">Product ID</div>
                         </li>
-                        <li>
-                            <div class="body-title">Description</div>
-                        </li>
+{{--                        <li>--}}
+{{--                            <div class="body-title">Description</div>--}}
+{{--                        </li>--}}
                         <li>
                             <div class="body-title">Price</div>
                         </li>
@@ -87,15 +87,15 @@
                         <ul class="flex flex-column">
                             <li class="product-item gap14">
                                 <div class="image no-bg">
-                                    <img src="{{ asset($value->image) }}" alt="">
+                                    <img src="{{ asset('storage/'.$value->image) }}" alt="">
                                 </div>
                                 <div class="flex items-center justify-between gap20 flex-grow">
                                     <div class="name">
                                         <a href="product-list.html" class="body-title-2">{{ $value->name }}</a>
                                     </div>
                                     <div class="body-text">{{ $value->id }}</div>
-                                    <div class="body-text">{{ $value->description }} </div>
-                                    <div class="body-text">{{ $value->price }} vnd</div>
+{{--                                    <div class="body-text">{{ $value->description }} </div>--}}
+                                    <div class="body-text">{{ number_format($value->price) }} vnd</div>
                                     <div class="name">
                                         <p class="body-title-2">{{ $value->ton_kho }}</p>
                                     </div>
@@ -106,7 +106,7 @@
                                             <i class="icon-eye"></i>
                                         </div>
                                         <div class="item edit">
-                                                <a href="{{ route('product.edit',$value->id) }}"><i class="icon-edit-3"></i></a>
+                                                <a href="{{ route('san-pham.edit',$value->id) }}"><i class="icon-edit-3"></i></a>
                                         </div>
                                         <div class="item trash">
                                             <i class="icon-trash-2"></i>

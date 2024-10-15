@@ -1,28 +1,5 @@
 @extends('layout.admin.layout')
 @section('content')
-        <!-- main-content-wrap -->
-        <div class="main-content-wrap">
-            <div class="flex items-center flex-wrap justify-between gap20 mb-27">
-                <h3>Product List</h3>
-                <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
-                    <li>
-                        <a href="index.html"><div class="text-tiny">Dashboard</div></a>
-                    </li>
-                    <li>
-                        <i class="icon-chevron-right"></i>
-                    </li>
-                    <li>
-                        <a href="#"><div class="text-tiny">Ecommerce</div></a>
-                    </li>
-                    <li>
-                        <i class="icon-chevron-right"></i>
-                    </li>
-                    <li>
-                        <div class="text-tiny">Product List</div>
-                    </li>
-                </ul>
-            </div>
-            <!-- product-list -->
             <div class="wg-box">
                 <div class="title-box">
                     <i class="icon-coffee"></i>
@@ -41,7 +18,7 @@
                             </div>
                             <div class="text-tiny">entries</div>
                         </div>
-                        <form class="form-search" action="{{ route('search') }}" method="get" >
+                        <form class="form-search" action="{{ route('san-pham.search') }}" method="get" >
                             <fieldset class="name">
                                 <input type="text" placeholder="Search here..." class="" name="search" tabindex="2" value="" aria-required="true" >
                             </fieldset>
@@ -50,7 +27,7 @@
                             </div>
                         </form>
                     </div>
-                    <a class="tf-button style-1 w208" href="{{ route('create') }}"><i class="icon-plus"></i>Add new</a>
+                    <a class="tf-button style-1 w208" href="{{ route('san-pham.create') }}"><i class="icon-plus"></i>Add new</a>
                 </div>
                 <div class="wg-table table-product-list">
                     <ul class="table-title flex gap20 mb-14">
@@ -60,9 +37,9 @@
                         <li>
                             <div class="body-title">Product ID</div>
                         </li>
-                        <li>
-                            <div class="body-title">Description</div>
-                        </li>
+{{--                        <li>--}}
+{{--                            <div class="body-title">Description</div>--}}
+{{--                        </li>--}}
                         <li>
                             <div class="body-title">Price</div>
                         </li>
@@ -87,7 +64,7 @@
                             <li class="product-item gap14">
                                 <div class="image no-bg">
                                     @if($value->image)
-                                        <img src="{{ asset($value->image) }}" alt="">
+                                        <img src="{{ asset('storage/'.$value->image) }}" alt="">
                                     @else
                                         <span>k co anh</span>
                                     @endif
@@ -97,7 +74,7 @@
                                         <a href="product-list.html" class="body-title-2">{{ $value->name }}</a>
                                     </div>
                                     <div class="body-text">{{ $value->id }}</div>
-                                    <div class="body-text">{{ $value->description }} </div>
+{{--                                    <div class="body-text">{{ $value->description }} </div>--}}
                                     <div class="body-text">{{ $value->price }} vnd</div>
                                     <div class="name">
                                         <p class="body-title-2">{{ $value->ton_kho }}</p>
@@ -107,7 +84,7 @@
                                     <div class="body-text">{{ $value->created_at }}</div>
                                     <div class="list-icon-function">
                                         <div class="item eye">
-                                            <a href="{{ route('show',$value->id) }}"><i class="icon-eye"></i></a>
+                                            <a href="{{ route('san-pham.show',$value->id) }}"><i class="icon-eye"></i></a>
                                         </div>
                                         <div class="item edit">
                                             <i class="icon-edit-3"></i>
@@ -125,29 +102,9 @@
                 <div class="divider"></div>
                 <div class="flex items-center justify-between flex-wrap gap10">
                     <div class="text-tiny">Showing 10 entries</div>
-                    <ul class="wg-pagination">
-                        <li>
-                            <a href="#"><i class="icon-chevron-left"></i></a>
-                        </li>
-                        <li>
-                            <a href=""></a>
-                        </li>
-                        <li class="active">
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon-chevron-right"></i></a>
-                        </li>
+                    <ul class="pagination">
+                        {{ $products->links() }}
                     </ul>
-
                 </div>
-
-                {{ $products->links() }}
             </div>
-            <!-- /product-list -->
-        </div>
-        <!-- /main-content-wrap -->
 @endsection
