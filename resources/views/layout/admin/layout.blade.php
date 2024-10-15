@@ -23,7 +23,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/style.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
 
@@ -63,7 +62,46 @@
                 @include('layout.admin.menu_top')
                 <!-- /header-dashboard -->
                 <!-- main-content -->
-                @yield('content')
+                <div class="main-content">
+                    <!-- main-content-wrap -->
+                    <div class="main-content-inner">
+                        <!-- main-content-wrap -->
+                        <div class="main-content-wrap">
+                            <div class="flex items-center flex-wrap justify-between gap20 mb-27">
+                                <h3>Product Detail</h3>
+                                <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
+                                    <li>
+                                        <a href="index.html"><div class="text-tiny">Dashboard</div></a>
+                                    </li>
+                                    <li>
+                                        <i class="icon-chevron-right"></i>
+                                    </li>
+                                    <li>
+                                        <a href="#"><div class="text-tiny">Ecommerce</div></a>
+                                    </li>
+                                    <li>
+                                        <i class="icon-chevron-right"></i>
+                                    </li>
+                                    <li>
+                                        <div class="text-tiny">Product Detail</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Product Detail -->
+                            @yield('content')
+                            <!-- /Product Detail -->
+                        </div>
+                        <!-- /main-content-wrap -->
+                    </div>
+                    <!-- /main-content-wrap -->
+                    <!-- bottom-page -->
+                    <div class="bottom-page">
+                        <div class="body-text">Copyright © 2024 Remos. Design with</div>
+                        <i class="icon-heart"></i>
+                        <div class="body-text">by <a href="https://themeforest.net/user/themesflat/portfolio">Themesflat</a> All rights reserved.</div>
+                    </div>
+                    <!-- /bottom-page -->
+                </div>
                 <!-- /main-content -->
             </div>
             <!-- /section-content-right -->
@@ -89,7 +127,6 @@
 <script src="{{ asset('assets_admin/js/switcher.js') }}"></script>
 <script src="{{ asset('assets_admin/js/theme-settings.js') }}"></script>
 <script src="{{ asset('assets_admin/js/main.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 
