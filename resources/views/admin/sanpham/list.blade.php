@@ -63,9 +63,9 @@
                             <li>
                                 <div class="body-title">Product ID</div>
                             </li>
-                            <li>
-                                <div class="body-title">Description</div>
-                            </li>
+{{--                            <li>--}}
+{{--                                <div class="body-title">Description</div>--}}
+{{--                            </li>--}}
                             <li>
                                 <div class="body-title">Price</div>
                             </li>
@@ -90,7 +90,7 @@
                                 <li class="product-item gap14">
                                     <div class="image no-bg">
                                         @if($value->image)
-                                            <img src="{{ asset($value->image) }}" alt="">
+                                            <img src="{{ asset('storage/' .$value->image) }}" alt="">
                                         @else
                                             <span>k co anh</span>
                                         @endif
@@ -100,7 +100,7 @@
                                             <a href="product-list.html" class="body-title-2">{{ $value->name }}</a>
                                         </div>
                                         <div class="body-text">{{ $value->id }}</div>
-                                        <div class="body-text">{{ $value->description }} </div>
+{{--                                        <div class="body-text">{{ $value->description }} </div>--}}
                                         <div class="body-text">{{ $value->price }} vnd</div>
                                         <div class="name">
                                             <p class="body-title-2">{{ $value->ton_kho }}</p>

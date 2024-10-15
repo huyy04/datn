@@ -38,7 +38,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $productId = Product::query()->find($id);
+        $productId = Product::query()->with('variant')->find($id);
         return view('admin.sanpham.show', compact('productId'));
     }
 
