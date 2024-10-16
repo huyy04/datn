@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\LoginUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductVariantController;
+use App\Http\Controllers\Admin\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,33 +25,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
 Route::get('/', function () {
     return view('client.home'); })->name('client.home');
 Route::get('/san-pham', function () {
     return view('client.sanpham');
 });
-Route::get('/login', function () {
-    return view('user.login');
+
+Route::get('/register', [RegisteredUserController::class, 'create'])->name('user.register');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
+
+Route::get('/login', [LoginUserController::class, 'create'])->name( 'user.login');
+Route::post('/login', [LoginUserController::class, 'store'])->name('login.store');
+
+
+Route::middleware('auth')->group(function () {
+    // Các route yêu cầu người dùng đã đăng nhập
+    Route::post('/logout', [LoginUserController::class, 'logout'])->name('logout');
 });
 
-
 // Phân quyền admin
-//Route::middleware(['auth', 'isAdmin'])->group(function () {
-//    Route::get('/admin', function () {
-//        return view('admin.home');})->name('admin.home');
-//Route::get('/admin/category-list', function () {
-//    return view('admin.danhmuc.list');
-//});
+Route::get('/admin', function () {
+    return view('admin.home');
+})->name('admin.home');
+
 Route::controller(BrandController::class)
     ->prefix('brand')
     ->group(function () {
@@ -93,7 +92,18 @@ Route::controller(ProductVariantController::class)->prefix('thuoc-tinh')->group(
     Route::post('store', 'store')->name('thuoc-tinh.store');
 });
 
+Route::controller(UserController::class)
+    ->prefix('user')
+    ->group(function () {
+        Route::get('list', 'index')->name('user.list');
+        Route::get('search', 'search')->name('user.search');
+        Route::get('create', 'create')->name('user.create');
+        Route::post('store', 'store')->name('user.store');
+        Route::get('{id}/edit', 'edit')->name('user.edit');
+        Route::post('{id}/update', 'update')->name('user.update');
+        Route::delete('{id}/destroy', 'destroy')->name('user.destroy');
+    });
 //});
 
 
-require __DIR__.'/auth.php';
+

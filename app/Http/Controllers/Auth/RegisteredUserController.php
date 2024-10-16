@@ -2,50 +2,81 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Admin\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use App\Http\Controllers\Admin\Controller;
 
 class RegisteredUserController extends Controller
 {
     /**
-     * Display the registration view.
+     * Display a listing of the resource.
      */
-    public function create(): View
+    public function index()
     {
-        return view('auth.register');
+        //
     }
 
     /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * Show the form for creating a new resource.
      */
-    public function store(Request $request): RedirectResponse
+    public function create()
+    {
+        return view('user.register');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+            'phone' => 'required|string|min:9',
         ]);
 
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'phone' => $request->phone,
         ]);
 
-        event(new Registered($user));
+        return redirect()->route('user.login')->with('success', 'Registration successful. Please log in.');
+    }
 
-        Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

@@ -108,12 +108,12 @@
                         </a>
                         <ul class="sub-menu">
                             <li class="sub-menu-item">
-                                <a href="category-list.html" class="">
+                                <a href="{{ route(name: 'danhmuc.list') }}" class="">
                                     <div class="text">Category list</div>
                                 </a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="new-category.html" class="">
+                                <a href="{{route('danhmuc.create')}}" class="">
                                     <div class="text">New category</div>
                                 </a>
                             </li>
@@ -167,12 +167,12 @@
                         </a>
                         <ul class="sub-menu">
                             <li class="sub-menu-item">
-                                <a href="all-user.html" class="">
+                                <a href="{{route('user.list')}}" class="">
                                     <div class="text">All user</div>
                                 </a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="add-new-user.html" class="">
+                                <a href="{{route(name: 'user.create')}}" class="">
                                     <div class="text">Add new user</div>
                                 </a>
                             </li>

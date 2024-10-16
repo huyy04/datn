@@ -368,17 +368,23 @@
             <div class="popup-wrap user type-header">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <span class="header-user wg-user">
-                                                <span class="image">
-                                                    <img src="images/avatar/user-1.png" alt="">
-                                                </span>
-                                                <span class="flex flex-column">
-                                                    <span class="body-title mb-2">Kristin Watson</span>
-                                                    <span class="text-tiny">Admin</span>
-                                                </span>
-                                            </span>
+            <span class="header-user wg-user">
+                <span class="image">
+                    <img src="images/avatar/user-1.png" alt="">
+                </span>
+
+                <span class="flex flex-column">
+                    @auth
+                        <span class="body-title mb-2"> {{ Auth::user()->name }}</span>
+                        <span class="text-tiny"> {{ Auth::user()->role }}</span>
+                    @else
+                        <span class="body-title mb-2"> Guest</span>
+                    @endauth
+                </span>
+            </span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-end has-content" aria-labelledby="dropdownMenuButton3" >
+
+                    <ul class="dropdown-menu dropdown-menu-end has-content" aria-labelledby="dropdownMenuButton3">
                         <li>
                             <a href="#" class="user-item">
                                 <div class="icon">
@@ -388,44 +394,15 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="user-item">
-                                <div class="icon">
-                                    <i class="icon-mail"></i>
-                                </div>
-                                <div class="body-title-2">Inbox</div>
-                                <div class="number">27</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="user-item">
-                                <div class="icon">
-                                    <i class="icon-file-text"></i>
-                                </div>
-                                <div class="body-title-2">Taskboard</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="setting.html" class="user-item">
-                                <div class="icon">
-                                    <i class="icon-settings"></i>
-                                </div>
-                                <div class="body-title-2">Setting</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="user-item">
-                                <div class="icon">
-                                    <i class="icon-headphones"></i>
-                                </div>
-                                <div class="body-title-2">Support</div>
-                            </a>
-                        </li>
-                        <li>
                             <a href="login.html" class="user-item">
-                                <div class="icon">
-                                    <i class="icon-log-out"></i>
-                                </div>
-                                <div class="body-title-2">Log out</div>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
+                                    <div class="body-title-2">{{ __('Logout') }}</div>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </a>
                         </li>
                     </ul>
@@ -433,4 +410,3 @@
             </div>
         </div>
     </div>
-</div>
