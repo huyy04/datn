@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 //use App\Models\Color;
 //use App\Models\ProductVariant;
@@ -112,7 +113,39 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //dd($request->all());
+        $productId = Product::query()->find($id);
+        $validate = $request->validate([
+            'name' => 'required|max:255',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => 'required',
+            'ton_kho' => 'required',
+            'description' => 'required',
+            'brand_id' => 'required',
+            'category_id' => 'required',
+        ]);
+        // kiem tra xem co file nao dc tai len khong
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            // xoa anh cu neu ton tai
+            if ($productId->image && Storage::exists($productId->image)) {
+                Storage::delete($productId->image);
+            }else{
+                // luu anh moi
+                $fileName = time() .'_'. $file->getClientOriginalName();
+                $path = $file->storeAs('products', $fileName, 'public');
+            }
+        }
+        $productId->update([
+            'name' => $validate['name'],
+            'image' => $path,
+            'description' => $validate['description'],
+            'price' => $validate['price'],
+            'ton_kho' => $validate['ton_kho'],
+            'brand_id' => $validate['brand_id'],
+            'category_id' => $validate['category_id'],
+        ]);
+        return redirect()->route('san-pham.index');
     }
 
     /**
@@ -120,6 +153,8 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $productId = Product::query()->find($id);
+        $productId->delete();
+        return redirect()->route('san-pham.index');
     }
 }

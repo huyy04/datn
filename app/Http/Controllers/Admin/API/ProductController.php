@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\API;
 use App\Http\Controllers\Admin\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -56,6 +57,22 @@ class ProductController extends Controller
                 'message' => 'tim thay san pham'
             ]);
         }
+
+    public function update(Request $request, string $id){
+            $productId = Product::query()->find($id);
+            $data = $productId->update([
+                'name' => $request['name'],
+                'price' => $request['price'],
+                'ton_kho' => $request['ton_kho'],
+                'description' => $request['description'],
+                'category_id' => $request['category_id'],
+                'brand_id' => $request['brand_id'],
+            ]);
+            return response()->json([
+                'data' => $data,
+                'message' => 'cap nhat thanh cong'
+            ]);
+    }
 
         public function destroy($id)
         {
