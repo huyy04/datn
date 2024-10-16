@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\API\ProductController;
 use App\Http\Controllers\Admin\API\CategoryController;
+use App\Http\Controllers\Admin\API\ProductVariantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,10 @@ Route::controller(CategoryController::class)
         Route::put('update/{id}', 'update');
         Route::delete('delete/{id}', 'delete');
     });
+
+Route::controller(ProductVariantController::class)->prefix('thuoc-tinh')->group(function () {
+    Route::get('/', 'index');
+    Route::post('/store', 'store');
+    Route::put('update/{id}', 'update');
+    Route::delete('delete/{id}', 'delete');
+});
