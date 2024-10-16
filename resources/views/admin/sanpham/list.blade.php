@@ -1,12 +1,10 @@
 @extends('layout.admin.layout')
 @section('content')
-<<<<<<< HEAD
             <!-- main-content-wrap -->
             <div class="main-content-wrap">
                 <div class="flex items-center flex-wrap justify-between gap20 mb-27">
                     <h3>Product List</h3>
                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
-=======
             <div class="wg-box">
                 <div class="title-box">
                     <i class="icon-coffee"></i>
@@ -38,7 +36,6 @@
                 </div>
                 <div class="wg-table table-product-list">
                     <ul class="table-title flex gap20 mb-14">
->>>>>>> huy04
                         <li>
                             <div class="body-title">Product</div>
                         </li>
@@ -115,8 +112,5 @@
                     </ul>
                 </div>
             </div>
-<<<<<<< HEAD
             <!-- /main-content-wrap -->
-=======
->>>>>>> huy04
 @endsection

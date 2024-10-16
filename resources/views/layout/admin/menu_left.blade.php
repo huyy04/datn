@@ -20,41 +20,7 @@
                         <ul class="sub-menu">
                             <li class="sub-menu-item">
                                 <a href="index.html" class="">
-<<<<<<< HEAD
-                                    <div class="text">Home 01</div>
-                                </a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="home-2.html" class="">
-                                    <div class="text">Home 02</div>
-                                </a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="home-3.html" class="">
-                                    <div class="text">Home 03</div>
-                                </a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="home-4.html" class="">
-                                    <div class="text">Home 04</div>
-                                </a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="home-boxed.html" class="">
-                                    <div class="text">Home Boxed</div>
-                                </a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="home-menu-icon-hover.html" class="">
-                                    <div class="text">Home Menu Icon Hover</div>
-                                </a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="home-menu-icon-default.html" class="">
-                                    <div class="text">Home Menu Icon Default</div>
-=======
                                     <div class="text">Home</div>
->>>>>>> huy04
                                 </a>
                             </li>
                         </ul>
@@ -82,21 +48,7 @@
                             </li>
                             <li class="sub-menu-item">
                                 <a href="product-detail-1.html" class="active">
-<<<<<<< HEAD
                                     <div class="text">Product Detail 1</div>
-                                </a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="product-detail-2.html" class="">
-                                    <div class="text">Product Detail 2</div>
-                                </a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="product-detail-3.html" class="">
-                                    <div class="text">Product Detail 3</div>
-=======
-                                    <div class="text">Product Detail</div>
->>>>>>> huy04
                                 </a>
                             </li>
                         </ul>

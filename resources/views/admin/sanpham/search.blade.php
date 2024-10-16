@@ -4,27 +4,6 @@
     @if($search->isEmpty())
         <h1>Không tìm thấy kết quả nào !</h1>
     @else
-<<<<<<< HEAD
-                <!-- main-content-wrap -->
-                <div class="main-content-wrap">
-                    <div class="flex items-center flex-wrap justify-between gap20 mb-27">
-                        <h3>Product List</h3>
-                        <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
-                            <li>
-                                <a href="index.html"><div class="text-tiny">Dashboard</div></a>
-                            </li>
-                            <li>
-                                <i class="icon-chevron-right"></i>
-                            </li>
-                            <li>
-                                <a href="#"><div class="text-tiny">Ecommerce</div></a>
-                            </li>
-                            <li>
-                                <i class="icon-chevron-right"></i>
-                            </li>
-                            <li>
-                                <div class="text-tiny">Product List</div>
-=======
         <!-- main-content-wrap -->
         <div class="main-content-wrap">
             <div class="flex items-center flex-wrap justify-between gap20 mb-27">
@@ -85,9 +64,9 @@
                         <li>
                             <div class="body-title">Product ID</div>
                         </li>
-{{--                        <li>--}}
-{{--                            <div class="body-title">Description</div>--}}
-{{--                        </li>--}}
+                        {{--                        <li>--}}
+                        {{--                            <div class="body-title">Description</div>--}}
+                        {{--                        </li>--}}
                         <li>
                             <div class="body-title">Price</div>
                         </li>
@@ -115,7 +94,7 @@
                                         <a href="product-list.html" class="body-title-2">{{ $value->name }}</a>
                                     </div>
                                     <div class="body-text">{{ $value->id }}</div>
-{{--                                    <div class="body-text">{{ $value->description }} </div>--}}
+                                    {{--                                    <div class="body-text">{{ $value->description }} </div>--}}
                                     <div class="body-text">{{ number_format($value->price) }} vnd</div>
                                     <div class="name">
                                         <p class="body-title-2">{{ $value->ton_kho }}</p>
@@ -127,14 +106,13 @@
                                             <i class="icon-eye"></i>
                                         </div>
                                         <div class="item edit">
-                                                <a href="{{ route('san-pham.edit',$value->id) }}"><i class="icon-edit-3"></i></a>
+                                            <a href="{{ route('san-pham.edit',$value->id) }}"><i class="icon-edit-3"></i></a>
                                         </div>
                                         <div class="item trash">
                                             <i class="icon-trash-2"></i>
                                         </div>
                                     </div>
                                 </div>
->>>>>>> huy04
                             </li>
                         </ul>
                     @endforeach
@@ -142,35 +120,30 @@
                 <div class="divider"></div>
                 <div class="flex items-center justify-between flex-wrap gap10">
                     <div class="text-tiny">Showing 10 entries</div>
-{{--                            <ul class="wg-pagination">--}}
-{{--                                <li>--}}
-{{--                                    <a href="#"><i class="icon-chevron-left"></i></a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">1</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="active">--}}
-{{--                                    <a href="#">2</a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">3</a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#"><i class="icon-chevron-right"></i></a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
+                    {{--                            <ul class="wg-pagination">--}}
+                    {{--                                <li>--}}
+                    {{--                                    <a href="#"><i class="icon-chevron-left"></i></a>--}}
+                    {{--                                </li>--}}
+                    {{--                                <li>--}}
+                    {{--                                    <a href="#">1</a>--}}
+                    {{--                                </li>--}}
+                    {{--                                <li class="active">--}}
+                    {{--                                    <a href="#">2</a>--}}
+                    {{--                                </li>--}}
+                    {{--                                <li>--}}
+                    {{--                                    <a href="#">3</a>--}}
+                    {{--                                </li>--}}
+                    {{--                                <li>--}}
+                    {{--                                    <a href="#"><i class="icon-chevron-right"></i></a>--}}
+                    {{--                                </li>--}}
+                    {{--                            </ul>--}}
                     <div class="pagination">
 
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            <!-- /main-content-wrap -->
-
-=======
             <!-- /product-list -->
         </div>
         <!-- /main-content-wrap -->
->>>>>>> huy04
     @endif
 @endsection
