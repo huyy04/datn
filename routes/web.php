@@ -68,9 +68,9 @@ Route::controller(CategoryController::class)
     Route::get('search', 'search')->name('danhmuc.search');
     Route::get('create', 'create')->name('danhmuc.create');
     Route::post('store', 'store')->name('danhmuc.store');
-    Route::get('{id}/edit', 'edit')->name('danhmuc.edit');
-    Route::post('{id}/update', 'update')->name('danhmuc.update');
-    Route::delete('{id}/destroy', 'destroy')->name('danhmuc.destroy');
+    Route::get('/edit/{id}', 'edit')->name('danhmuc.edit');
+    Route::post('/update/{id}', 'update')->name('danhmuc.update');
+    Route::delete('/destroy/{id}', 'destroy')->name('danhmuc.destroy');
 });
 
 Route::controller(ProductController::class)
@@ -81,9 +81,9 @@ Route::controller(ProductController::class)
         Route::get('create', 'create')->name('san-pham.create');
         Route::post('store', 'store')->name('san-pham.store');
         Route::get('show/{id}', 'show')->name('san-pham.show');
-        Route::get('edit/{id}', 'edit')->name('san-pham.edit');
-        Route::post('edit/{id}', 'update')->name('san-pham.update');
-        Route::delete('delete/{id}', 'destroy')->name('san-pham.destroy');
+        Route::get('/{id}/edit', 'edit')->name('san-pham.edit');
+        Route::put('/{id}/update', 'update')->name('san-pham.update');
+        Route::delete('/{id}/delete', 'destroy')->name('san-pham.destroy');
 });
 
 Route::controller(ProductVariantController::class)->prefix('thuoc-tinh')->group(function () {
