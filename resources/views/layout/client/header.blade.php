@@ -7,7 +7,6 @@
                 <div class="header-logo">
                     <a href="index.html">
                         <img src="{{ url('assets/images/logo.png') }}" width="85" height="70" alt="logo">
-                        <img class="light" src="{{ url('assets/images/logo.png') }}" width="85" height="70" alt="logo">
                     </a>
                 </div>
                 <!--== End: Logo ==-->

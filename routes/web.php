@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\LoginUserController;
+use App\Http\Controllers\Auth\ProfileController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -21,9 +23,6 @@ use App\Http\Controllers\Admin\UserController;
 |
 */
 // User
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/', function () {
     return view('client.home'); })->name('client.home');
@@ -44,6 +43,26 @@ Route::middleware('auth')->group(function () {
 });
 
 // Phân quyền admin
+
+Route::get('/register', [RegisteredUserController::class, 'create'])->name('user.register');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
+
+Route::get('/login', [LoginUserController::class, 'create'])->name( 'user.login');
+Route::post('/login', [LoginUserController::class, 'store'])->name('login.store');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [LoginUserController::class, 'logout'])->name('logout');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// Phân quyền admin
+//Route::middleware(['auth', 'isAdmin'])->group(function () {
+//    Route::get('/admin', function () {
+//        return view('admin.home');})->name('admin.home');
+
 Route::get('/admin', function () {
     return view('admin.home');
 })->name('admin.home');

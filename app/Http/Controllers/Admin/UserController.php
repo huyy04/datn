@@ -39,6 +39,9 @@ class UserController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
             'phone' => 'nullable|min:10|max:15',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+            'phone' => 'nullable|min:9|max:15',
             'role' => 'required|in:1,2',
         ]);
 

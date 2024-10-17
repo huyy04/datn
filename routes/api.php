@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\API\ProductController;
 use App\Http\Controllers\Admin\API\CategoryController;
 use App\Http\Controllers\Admin\API\ProductVariantController;
+use App\Http\Controllers\Admin\API\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,12 @@ Route::controller(ProductVariantController::class)->prefix('thuoc-tinh')->group(
     Route::put('update/{id}', 'update');
     Route::delete('delete/{id}', 'delete');
 });
+
+Route::controller(UserController::class)
+    ->prefix('user')
+    ->group(function () {
+        Route::get('/', 'index');
+        Route::post('store', 'store');
+        Route::put('update/{id}', 'update');
+        Route::delete('delete/{id}', 'destroy');
+    });
