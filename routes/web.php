@@ -78,19 +78,21 @@ Route::controller(ProductController::class)
     ->group(function () {
         Route::get('list', 'index')->name('san-pham.index');
         Route::get('search', 'search')->name('san-pham.search');
+        Route::get('show/{id}', 'show')->name('san-pham.show');
         Route::get('create', 'create')->name('san-pham.create');
         Route::post('store', 'store')->name('san-pham.store');
-        Route::get('show/{id}', 'show')->name('san-pham.show');
         Route::get('/{id}/edit', 'edit')->name('san-pham.edit');
         Route::put('/{id}/update', 'update')->name('san-pham.update');
         Route::delete('/{id}/delete', 'destroy')->name('san-pham.destroy');
 });
 
-Route::controller(ProductVariantController::class)->prefix('thuoc-tinh')->group(function () {
-    Route::get('list', 'index')->name('thuoc-tinh.index');
-    Route::get('search', 'search')->name('thuoc-tinh.search');
-    Route::get('create', 'create')->name('thuoc-tinh.create');
-    Route::post('store', 'store')->name('thuoc-tinh.store');
+Route::controller(ProductVariantController::class)
+    ->prefix('thuoc-tinh')
+    ->group(function () {
+        Route::get('list', 'index')->name('thuoc-tinh.index');
+        Route::get('search', 'search')->name('thuoc-tinh.search');
+        Route::get('create', 'create')->name('thuoc-tinh.create');
+        Route::post('store', 'store')->name('thuoc-tinh.store');
 });
 
 //});
