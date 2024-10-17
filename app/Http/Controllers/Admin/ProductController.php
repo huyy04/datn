@@ -115,7 +115,7 @@ class ProductController extends Controller
     {
         //dd($request->all());
         $productId = Product::query()->find($id);
-        $validate = $request->validate([
+        $request->validate([
             'name' => 'required|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price' => 'required',
@@ -124,26 +124,33 @@ class ProductController extends Controller
             'brand_id' => 'required',
             'category_id' => 'required',
         ]);
-        // kiem tra xem co file nao dc tai len khong
+
         if ($request->hasFile('image')) {
+            // xoa anh cu neu cap nhat
+            if ($productId->image){
+                $imageOld = public_path('products/'.$productId->image);
+                if(file_exists($imageOld)){
+                    unlink($imageOld);
+                }
+            }
+            // cap nhat anh moi
             $file = $request->file('image');
-            // xoa anh cu neu ton tai
-            if ($productId->image && Storage::exists($productId->image)) {
-                Storage::delete($productId->image);
-            }else{
-                // luu anh moi
+            if ($file->isValid()) {
                 $fileName = time() .'_'. $file->getClientOriginalName();
                 $path = $file->storeAs('products', $fileName, 'public');
             }
+        }else {
+            // giu nguyen anh neu k cap nhat anh
+            $path = $productId->image;
         }
         $productId->update([
-            'name' => $validate['name'],
+            'name' => $request['name'],
             'image' => $path,
-            'description' => $validate['description'],
-            'price' => $validate['price'],
-            'ton_kho' => $validate['ton_kho'],
-            'brand_id' => $validate['brand_id'],
-            'category_id' => $validate['category_id'],
+            'description' => $request['description'],
+            'price' => $request['price'],
+            'ton_kho' => $request['ton_kho'],
+            'brand_id' => $request['brand_id'],
+            'category_id' => $request['category_id'],
         ]);
         return redirect()->route('san-pham.index');
     }

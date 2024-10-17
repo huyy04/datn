@@ -42,7 +42,7 @@
                             <div class="select">
                                 <select class="" name="color_id">
                                     @foreach($objColor as $color)
-                                        <option value="{{ $color->hex_color }}" style="background-color: {{ $color->hex_color }}; width: 100px;height: 30px;border-radius: 50%">{{ $color->name }}</option>
+                                        <option value="{{ $color->id }}" style="background-color: {{ $color->hex_color }}; width: 100px;height: 30px;border-radius: 50%">{{ $color->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

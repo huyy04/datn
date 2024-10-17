@@ -26,19 +26,19 @@ class ProductVariantController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request->all());
-        $request->validate([
-            'product_id' => 'required|exists:products,id',
-            'color_id' => 'required|exists:colors,id',
-            'size_id' => 'required|exists:sizes,id',
-            'ram_size_id' => 'required|exists:ram_sizes,id',
+//        dd($request->all());
+//        $validate = $request->validate([
+//            'product_id' => '|exists:products,id',
+//            'color_id' => '|exists:colors,id',
+//            'size_id' => '|exists:sizes,id',
+//            'ram_size_id' => '|exists:ram_sizes,id',
+//        ]);
+        ProductVariant::query()->create([
+            'product_id' => $request['product_id'],
+            'color_id' => $request['color_id'],
+            'size_id' => $request['size_id'],
+            'ram_size_id' => $request['ram_size_id'],
         ]);
-        Product::query()->create([
-            'product_id' => $request->input(['product_id']),
-            'color_id' => $request->input(['color_id']),
-            'size_id' => $request->input(['size_id']),
-            'ram_size_id' => $request->input(['ram_size_id']),
-        ]);
-        return redirect()->route('thuoc-tinh.list');
+        return redirect()->route('thuoc-tinh.index');
     }
 }
