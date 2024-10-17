@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\Admin\Controller;
 
-class RegisteredUserController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('user.register');
+        //
     }
 
     /**
@@ -30,23 +28,8 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
-            'phone' => 'required|string|min:9',
-        ]);
-
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'phone' => $request->phone,
-        ]);
-
-        return redirect()->route('user.login')->with('success', 'Registration successful. Please log in.');
+        //
     }
-
 
     /**
      * Display the specified resource.
