@@ -1,28 +1,20 @@
-import React, { useState } from "react";
-import ProductList from "./components/Admin/ProductForm";
-import ProductForm from "./components/Admin/ProductList";
-
-const App = () => {
-    const [selectedProduct, setSelectedProduct] = useState(null);
-
-    const handleEditProduct = (product) => {
-        setSelectedProduct(product);
-    };
-
-    const handleProductSaved = () => {
-        setSelectedProduct(null);
-    };
-
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ProductList from "./components/Admin/Products/ProductList";
+import ProductVariantList from "./components/Admin/ProductVariants/ProductVariantList";
+function App() {
     return (
-        <div>
-            <h1>Product Management</h1>
-            <ProductForm
-                selectedProduct={selectedProduct}
-                onProductSaved={handleProductSaved}
-            />
-            <ProductList onEditProduct={handleEditProduct} />
-        </div>
+        <Router>
+            <Navigation />
+            <Routes>
+                <Route path="/products" element={<ProductList />} />
+                <Route
+                    path="/product-variants"
+                    element={<ProductVariantList />}
+                />
+            </Routes>
+        </Router>
     );
-};
+}
 
 export default App;
