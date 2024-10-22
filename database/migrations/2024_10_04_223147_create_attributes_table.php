@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('attributes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('value')->unsigned();
+            $table->string('value')->notNull();
             $table->timestamps();
         });
     }

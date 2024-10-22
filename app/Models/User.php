@@ -34,6 +34,10 @@ class User extends Authenticatable
     const __USER = "user";
     const __ADMIN = "admin";
 
+    public function bill()
+    {
+        return $this->hasMany(Bill::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -52,4 +56,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }

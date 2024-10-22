@@ -136,17 +136,12 @@
                     <li class="menu-item has-children">
                         <a href="javascript:void(0);" class="menu-item-button">
                             <div class="icon"><i class="icon-user-plus"></i></div>
-                            <div class="text">Roles</div>
+                            <div class="text">Bill</div>
                         </a>
                         <ul class="sub-menu">
                             <li class="sub-menu-item">
-                                <a href="all-roles.html" class="">
-                                    <div class="text">All roles</div>
-                                </a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="create-role.html" class="">
-                                    <div class="text">Create role</div>
+                                <a href="{{route('bill.list')}}" class="">
+                                    <div class="text">All Bill</div>
                                 </a>
                             </li>
                         </ul>

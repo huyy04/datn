@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductVariantController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\BillController;
 
 
 /*
@@ -121,6 +122,17 @@ Route::controller(UserController::class)
         Route::get('{id}/edit', 'edit')->name('user.edit');
         Route::post('{id}/update', 'update')->name('user.update');
         Route::delete('{id}/destroy', 'destroy')->name('user.destroy');
+    });
+
+Route::controller(BillController::class)
+    ->prefix('bill')
+    ->group(function () {
+        Route::get('list', 'index')->name('bill.list');
+        Route::get('search', 'search')->name('bill.search');
+        Route::get('{id}/show', 'show')->name('bill.show');
+        Route::get('{id}/edit', 'edit')->name('bill.edit');
+        Route::post('{id}/update', 'update')->name('bill.update');
+        Route::delete('{id}/destroy', 'destroy')->name('bill.destroy');
     });
 //});
 
