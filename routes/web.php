@@ -95,6 +95,9 @@ Route::controller(ProductVariantController::class)
         Route::post('store', 'store')->name('thuoc-tinh.store');
 });
 
+Route::get('bill-pdf', function (){
+    return view('admin.bill_pdf');
+});
 //});
 
 

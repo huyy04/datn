@@ -39,10 +39,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        // lay danh sach color , ram , size
-//        $color = Color::all();
-//        $size = Size::all();
-//        $size_ram = RamSize::all();
         $brand = Brand::all();
         $category = Category::all();
         return view('admin.sanpham.create', compact('brand', 'category'));

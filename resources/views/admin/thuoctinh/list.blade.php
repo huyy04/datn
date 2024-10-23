@@ -86,11 +86,11 @@
                         <ul class="flex flex-column">
                             <li class="product-item gap14">
                                 <div class="image no-bg">
-{{--                                    @if($value->product->image)--}}
-{{--                                        <img src="{{ asset($value->product->image) }}" alt="">--}}
-{{--                                    @else--}}
-{{--                                        <span>k co anh</span>--}}
-{{--                                    @endif--}}
+                                    @if($value->product->image)
+                                        <img src="{{ asset('storage/'.$value->product->image) }}" alt="">
+                                    @else
+                                        <span>k co anh</span>
+                                    @endif
                                 </div>
                                 <div class="flex items-center justify-between gap20 flex-grow">
                                     <div class="name">
@@ -122,22 +122,8 @@
                 <div class="divider"></div>
                 <div class="flex items-center justify-between flex-wrap gap10">
                     <div class="text-tiny">Showing 10 entries</div>
-                    <ul class="wg-pagination">
-                        <li>
-                            <a href="#"><i class="icon-chevron-left"></i></a>
-                        </li>
-                        <li>
-                            <a href=""></a>
-                        </li>
-                        <li class="active">
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="icon-chevron-right"></i></a>
-                        </li>
+                    <ul class="pagination">
+                        {{ $productVariants->links() }}
                     </ul>
 
                 </div>
