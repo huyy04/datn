@@ -1,14 +1,18 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\LoginUserController;
+use App\Http\Controllers\Auth\ProfileController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductVariantController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\LoginUserController;
-use App\Http\Controllers\Auth\ProfileController;
-use App\Http\Controllers\Admin\API\UserController;
+use App\Http\Controllers\Admin\BillController;
+use App\Http\Controllers\Admin\UserController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,18 +31,17 @@ Route::get('/san-pham', function () {
     return view('client.sanpham');
 });
 
+
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('user.register');
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
 
 Route::get('/login', [LoginUserController::class, 'create'])->name( 'user.login');
 Route::post('/login', [LoginUserController::class, 'store'])->name('login.store');
 
-Route::middleware('auth')->group(function () {
-    Route::post('/logout', [LoginUserController::class, 'logout'])->name('logout');
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::middleware('auth')->group(function () {
+    // Các route yêu cầu người dùng đã đăng nhập
+    Route::post('/logout', [LoginUserController::class, 'logout'])->name('logout');
 });
 
 // Phân quyền admin
@@ -105,7 +108,18 @@ Route::controller(UserController::class)
         Route::post('{id}/update', 'update')->name('user.update');
         Route::delete('{id}/destroy', 'destroy')->name('user.destroy');
     });
+
+Route::controller(BillController::class)
+    ->prefix('bill')
+    ->group(function () {
+        Route::get('list', 'index')->name('bill.list');
+        Route::get('search', 'search')->name('bill.search');
+        Route::get('{id}/show', 'show')->name('bill.show');
+        Route::get('{id}/edit', 'edit')->name('bill.edit');
+        Route::post('{id}/update', 'update')->name('bill.update');
+        Route::delete('{id}/destroy', 'destroy')->name('bill.destroy');
+    });
 //});
 
 
-require __DIR__.'/auth.php';
+

@@ -7,7 +7,6 @@
                 <div class="header-logo">
                     <a href="index.html">
                         <img src="{{ url('assets/images/logo.png') }}" width="85" height="70" alt="logo">
-                        <img class="light" src="{{ url('assets/images/logo.png') }}" width="85" height="70" alt="logo">
                     </a>
                 </div>
                 <!--== End: Logo ==-->
@@ -73,7 +72,7 @@
                                 <!-- Hiển thị liên kết Login và Register nếu chưa đăng nhập -->
                                 @guest
                                     <li>
-                                        <a href="{{ route('admin.user.login') }}">Login</a>
+                                        <a href="{{ route('user.login') }}">Login</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('user.register') }}">Register</a>
